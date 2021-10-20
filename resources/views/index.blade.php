@@ -9,7 +9,7 @@
     <meta name="keywords" content="admin,dashboard">
     <meta name="author" content="stacks">
     <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    
+
     <!-- Title -->
     <title>Neptune - Responsive Admin Dashboard Template</title>
 
@@ -22,7 +22,7 @@
     <link href="{{url('/')}}/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/plugins/pace/pace.css" rel="stylesheet">
 
-    
+
     <!-- Theme Styles -->
     <link href="{{url('/')}}/assets/css/main.min.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/css/custom.css" rel="stylesheet">
@@ -41,12 +41,13 @@
     <div class="app align-content-stretch d-flex flex-wrap">
         <div class="app-sidebar">
             <div class="logo">
-                <a href="index.html" class="logo-icon"><span class="logo-text">Neptune</span></a>
+                <a href="index.html" class="logo-icon"><span class="logo-text">Macrab</span></a>
                 <div class="sidebar-user-switcher user-activity-online">
                     <a href="#">
                         <img src="{{url('/')}}/assets/images/avatars/avatar.png">
                         <span class="activity-indicator"></span>
-                        <span class="user-info-text">Chloe<br><span class="user-state-info">On a call</span></span>
+                        <span class="user-info-text">{{ ucwords(Auth::user()->name) }}
+                            <br><span class="user-state-info">On a Dashboard</span></span>
                     </a>
                 </div>
             </div>
@@ -394,7 +395,7 @@
                                     </ul>
                                 </li>
                             </ul>
-            
+
                         </div>
                         <div class="d-flex">
                             <ul class="navbar-nav">
@@ -1052,7 +1053,7 @@
                                     <div class="card-body">
                                         <div class="widget-popular-blog-container">
                                             <div class="widget-popular-blog-image">
-                                                <img src="{{url('/')}}/assets/images/widgets/product2.jpeg" alt=""> 
+                                                <img src="{{url('/')}}/assets/images/widgets/product2.jpeg" alt="">
                                             </div>
                                             <div class="widget-popular-blog-content ps-4">
                                                 <span class="widget-popular-blog-title">
@@ -1109,7 +1110,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Javascripts -->
     <script src="{{url('/')}}/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
     <script src="{{url('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>

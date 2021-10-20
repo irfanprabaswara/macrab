@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+// empty session
+Route::group(['middleware' => ['guest']], function () {
+    //login user
+    Route::get('/login', 'Auth\LoginControl@get_login');
+    Route::post('/login', 'Auth\LoginControl@post_login');
+
+    //register user baru
+    Route::get('/register', 'UserPengguna\UserPenggunaControl@insert_user');
+    Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');
+});
+
+Route::group(['middleware' => ['ceklogin']], function () {
+    // home
+    Route::get('/', 'IndexHomeControl@get');
+    Route::get('/home', 'IndexHomeControl@get');
+
+
+    // logout
+    Route::get('/logout', 'WelcomeControl@logout');
+
 });
