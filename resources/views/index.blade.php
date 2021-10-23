@@ -36,6 +36,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        input[type="file"] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="app align-content-stretch d-flex flex-wrap">
@@ -393,6 +398,17 @@
                                             <button class="btn btn-primary">Create new repository</button>
                                         </li>
                                     </ul>
+                                </li>
+
+
+                                <li style="display: flex; align-items:center;" class="nav-item dropdown hidden-on-mobile">
+                                    <form action="{{url('/regional/import_excel')}}" method="post" id="form-import-excel" enctype="multipart/form-data">
+                                        <label for="importExcel" style="line-height: 0px;">
+                                            <i class="nav-link material-icons">upload</i>
+                                        </label>
+                                        {{ csrf_field() }}
+                                        <input type="file" name="file" id="importExcel" accept=".xls, .xlsx" onchange="form.submit()">
+                                    </form>
                                 </li>
                             </ul>
 

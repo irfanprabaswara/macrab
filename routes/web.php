@@ -22,6 +22,8 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');
 });
 
+Route::post('/regional/import_excel', 'ExcelController@import_excel');
+
 Route::group(['middleware' => ['ceklogin']], function () {
     // home
     Route::get('/', 'IndexHomeControl@get');
