@@ -1,3 +1,16 @@
+<!-- DARI TEMPLATE NEPTUNE (V) -->
+    <!-- Javascripts -->
+    <script src="{{url('/')}}/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="{{url('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{url('/')}}/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+    <script src="{{url('/')}}/assets/plugins/pace/pace.min.js"></script>
+    <script src="{{url('/')}}/assets/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="{{url('/')}}/assets/js/main.min.js"></script>
+    <script src="{{url('/')}}/assets/js/custom.js"></script>
+    <script src="{{url('/')}}/assets/js/pages/dashboard.js"></script>
+
+
+<!-- ASLI DARI JAVABLADE (V) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
