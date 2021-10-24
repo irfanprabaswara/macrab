@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\MyTickets;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class MyTicketsController extends Controller
 {
+    
     public function get_list_tickets_admin()
     { 
         // menampilkan list tickets 
