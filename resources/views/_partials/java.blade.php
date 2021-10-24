@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- Javascripts -->
 <script src="{{url('/')}}/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
 <script src="{{url('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -8,18 +7,6 @@
 <script src="{{url('/')}}/assets/js/main.min.js"></script>
 <script src="{{url('/')}}/assets/js/custom.js"></script>
 <script src="{{url('/')}}/assets/js/pages/dashboard.js"></script>
-=======
-<!-- DARI TEMPLATE NEPTUNE (V) -->
-    <!-- Javascripts -->
-    <script src="{{url('/')}}/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
-    <script src="{{url('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{url('/')}}/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
-    <script src="{{url('/')}}/assets/plugins/pace/pace.min.js"></script>
-    <script src="{{url('/')}}/assets/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="{{url('/')}}/assets/js/main.min.js"></script>
-    <script src="{{url('/')}}/assets/js/custom.js"></script>
-    <script src="{{url('/')}}/assets/js/pages/dashboard.js"></script>
-
 
 <!-- ASLI DARI JAVABLADE (V) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,7 +24,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.0/js/OverlayScrollbars.min.js"></script>
->>>>>>> c85133a4c471b4eac74155f5af7c3b7d7d5b054b
 
 <!-- Datatables -->
 <script src="{{ url('/') }}/assets/plugins/bootstrap/js/popper.min.js"></script>
