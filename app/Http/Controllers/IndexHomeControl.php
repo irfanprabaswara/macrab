@@ -17,4 +17,14 @@ class IndexHomeControl extends Controller
             return view('index');
         }
     }
+
+    
+    public function get_mytickets()
+    {
+        if (empty(Auth::user())) {
+            return redirect('/login', 'refresh');
+        } else {
+            return view('mytickets');
+        }
+    }
 }
