@@ -22,11 +22,18 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');
 });
 
+
+// import excel
+Route::post('/regional/import_excel', 'ExcelController@import_excel');
+
 Route::group(['middleware' => ['ceklogin']], function () {
     // home
     Route::get('/', 'IndexHomeControl@get');
     Route::get('/home', 'IndexHomeControl@get');
 
+    // my ticket
+    Route::get('/mytickets', 'IndexHomeControl@get_mytickets');
+    // Route::get('/mytickets', 'MyTickets\MyTicketsController@get_list_tickets_admin');
 
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
