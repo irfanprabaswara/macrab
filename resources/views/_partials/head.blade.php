@@ -12,21 +12,12 @@
     <link href="{{url('/')}}/assets/css/main.min.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/css/custom.css" rel="stylesheet">
 
-<<<<<<< HEAD
     <link rel="icon" type="image/png" sizes="32x32" href="{{url('/')}}/assets/images/macrab.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/assets/images/macrab.png" />
-=======
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url('/')}}/assets/images/neptune.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/assets/images/neptune.png" />
->>>>>>> 9e7361c1284ec1ddef356efb6a7487fd47e1fb1f
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<<<<<<< HEAD
     <![endif]-->
-=======
-    <![endif]-->
->>>>>>> 9e7361c1284ec1ddef356efb6a7487fd47e1fb1f
