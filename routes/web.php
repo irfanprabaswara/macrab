@@ -31,4 +31,8 @@ Route::group(['middleware' => ['ceklogin']], function () {
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
 
+
+    // TODO MANCORE
+    Route::get('/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
+
 });
