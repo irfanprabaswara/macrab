@@ -24,18 +24,18 @@ class UserPenggunaControl extends Controller
 
         // insert data ke table users
         $result = DB::table('users')->insert([
-            'name'          => $request->name,
-            'nik'           => $request->nik,
-            'email'          => $request->email,
-            'address'          => $request->address,
-            'contact'          => $request->contact,
-            'regional'          => $request->regional,
-            'witel'          => $request->witel,
-            'mitra'          => $request->mitra,
-            'photo'          => 'masih kosong',
-            'is_admin'      => $request->is_admin,
-            'password'      => bcrypt($request->password),
-            'created_at'    => Carbon::now(),
+            'name'       => $request->name,
+            'nik'        => $request->nik,
+            'email'      => $request->email,
+            'address'    => $request->address,
+            'contact'    => $request->contact,
+            'regional'   => $request->regional,
+            'witel'      => $request->witel,
+            'mitra'      => $request->mitra,
+            'photo'      => 'masih kosong',
+            'is_admin'   => $request->is_admin,
+            'password'   => bcrypt($request->password),
+            'created_at' => Carbon::now(),
         ]);
         // alihkan halaman ke halaman view driver
         $data['title'] = 'Dashboard';

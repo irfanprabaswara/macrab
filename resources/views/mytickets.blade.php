@@ -11,7 +11,7 @@
         <div class="row">
 
         </div>
-     @endsection                   
+     @endsection
 
     @section('java')
     @endsection

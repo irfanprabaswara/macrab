@@ -12,8 +12,8 @@
     <link href="{{url('/')}}/assets/css/main.min.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/css/custom.css" rel="stylesheet">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url('/')}}/assets/images/neptune.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/assets/images/neptune.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url('/')}}/assets/images/macrab.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/assets/images/macrab.png" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
