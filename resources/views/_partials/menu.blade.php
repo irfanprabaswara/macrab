@@ -53,7 +53,7 @@
                             <a class="nav-link" href="#"><i class="material-icons">manage_accounts</i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="material-icons">logout</i></a>
+                            <a class="nav-link" href="/logout"><i class="material-icons">logout</i></a>
                         </li>
                     </ul>
                 </div>

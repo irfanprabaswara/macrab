@@ -22,6 +22,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');
 });
 
+//Logout
+Route::get('logout', '\App\Http\Controllers\Auth\IndexHomeControl@logout');
+
 
 // import excel
 Route::post('/regional/import_excel', 'ExcelController@import_excel');

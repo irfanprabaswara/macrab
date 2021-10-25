@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class IndexHomeControl extends Controller
 {
+    public function logout(Request $request) 
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
+
     public function get()
     {
         if (empty(Auth::user())) {
