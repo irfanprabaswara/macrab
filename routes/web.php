@@ -38,6 +38,15 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/mytickets', 'IndexHomeControl@get_mytickets');
     // Route::get('/mytickets', 'MyTickets\MyTicketsController@get_list_tickets_admin');
 
+    // sto
+    Route::get('/sto', 'StoController@index');
+    Route::get('/sto/tambah','StoController@Add');
+    Route::post('/sto/store','StoController@store');
+    Route::get('/sto/edit/{id}','stoController@edit');
+    Route::post('/sto/update','stoController@update');
+    Route::get('/sto/hapus/{id}','stoController@delete');
+    // Route::get('/sto', 'Sto\StoController@get_list_sto_admin');
+
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
 
