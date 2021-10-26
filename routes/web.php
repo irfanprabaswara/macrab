@@ -31,4 +31,6 @@ Route::group(['middleware' => ['ceklogin']], function () {
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
 
+
+    Route::get('/historydata', 'HistoryDataControl@get');
 });
