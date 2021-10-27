@@ -47,6 +47,15 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/sto/hapus/{id}','stoController@delete');
     // Route::get('/sto', 'Sto\StoController@get_list_sto_admin');
 
+    // witel
+    Route::get('/witel', 'WitelController@index');
+    Route::get('/witel/tambah','WitelController@Add');
+    Route::post('/witel/store','WitelController@store');
+    Route::get('/witel/edit/{id}','witelController@edit');
+    Route::post('/witel/update','witelController@update');
+    Route::get('/witel/hapus/{id}','witelController@delete');
+    // Route::get('/witel', 'Witel\WitelController@get_list_witel_admin');
+
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
 

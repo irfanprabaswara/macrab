@@ -7,6 +7,8 @@
     <link href="{{url('/')}}/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/plugins/pace/pace.css" rel="stylesheet">
 
+    <link href="{{ url('/') }}/assets/plugins/highlight/styles/github-gist.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/plugins/datatables/datatables.min.css" rel="stylesheet">
 
     <!-- Theme Styles -->
     <link href="{{url('/')}}/assets/css/main.min.css" rel="stylesheet">
