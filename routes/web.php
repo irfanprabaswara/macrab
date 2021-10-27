@@ -19,7 +19,7 @@ Route::group(['middleware' => ['guest']], function () {
 
     //register user baru
     Route::get('/register', 'UserPengguna\UserPenggunaControl@insert_user');
-    Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');x
+    Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');
 });
 
 //Logout
@@ -54,5 +54,7 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // TODO MANCORE
     Route::get('/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
+
+    Route::get('/excelhome', 'ExcelController@index');
 
 });

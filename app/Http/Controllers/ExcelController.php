@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class ExcelController extends Controller
 {
+	public function Index()
+	{
+		return view('excelhome');
+	}
+
     public function import_excel(Request $request) 
 	{
 		// validasi
