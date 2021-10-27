@@ -40,7 +40,7 @@
                         class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="pricing.html">Update Core</a>
+                        <a href="/mytickets">My Ticket</a>
                     </li>
                     <li>
                         <a href="invoice.html">Booking Core</a>

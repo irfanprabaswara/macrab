@@ -23,7 +23,7 @@ Route::group(['middleware' => ['guest']], function () {
 });
 
 //Logout
-Route::get('logout', '\App\Http\Controllers\Auth\IndexHomeControl@logout');
+Route::get('logout', '\App\Http\Controllers\UserPengguna\IndexHomeControl@logout');
 
 
 // import excel
@@ -35,7 +35,7 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/home', 'IndexHomeControl@get');
 
     // my ticket
-    Route::get('/mytickets', 'IndexHomeControl@get_mytickets');
+    Route::get('/mytickets', 'MyTickets\MyTicketsController@get_mytickets');
     // Route::get('/mytickets', 'MyTickets\MyTicketsController@get_list_tickets_admin');
 
     // sto
@@ -47,15 +47,6 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/sto/hapus/{id}','stoController@delete');
     // Route::get('/sto', 'Sto\StoController@get_list_sto_admin');
 
-    // witel
-    Route::get('/witel', 'WitelController@index');
-    Route::get('/witel/tambah','WitelController@Add');
-    Route::post('/witel/store','WitelController@store');
-    Route::get('/witel/edit/{id}','witelController@edit');
-    Route::post('/witel/update','witelController@update');
-    Route::get('/witel/hapus/{id}','witelController@delete');
-    // Route::get('/witel', 'Witel\WitelController@get_list_witel_admin');
-
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
 
@@ -63,7 +54,5 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // TODO MANCORE
     Route::get('/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
-
-    Route::get('/excelhome', 'ExcelController@index');
 
 });

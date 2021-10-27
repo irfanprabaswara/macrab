@@ -11,11 +11,34 @@ use Illuminate\Support\Facades\DB;
 
 class MyTicketsController extends Controller
 {
+    public function get_mytickets()
+    {
+        $user_name = Auth::user()->name;
+        $is_admin = Auth::user()->is_admin;
+        $tiketUser = DB::table('tiket')
+                ->join('statustiket', 'tiket.idStatusTiket', '=', 'statustiket.idStatusTiket')
+                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy','statustiket.deskripsiStatus')
+                ->when($is_admin==0,function($q) use ($user_name){
+                    $q->where('tiket.createdBy', '=', $user_name);
+                })
+                ->get();
+    
+                return view('myticket\update_data',['tiketUser' => $tiketUser]);
+    }
     
     public function get_list_tickets_admin()
-    { 
+        {
+            $tiketUser = DB::table('tiket')
+                ->join('statustiket', 'tiket.idStatusTiket', '=', 'statustiket.idStatusTiket')
+                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy','statustiket.deskripsiStatus')
+                ->get();
+    
+                return view('sto',['tiketUser' => $tiketUser]);
+        
         // menampilkan list tickets 
         // query: select dari all table
+
+        
     }
 
     public function get_details_ticket_admin()

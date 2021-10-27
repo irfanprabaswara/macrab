@@ -8,12 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithMappedCells;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\ToCollection;
 
-class RegionalImport implements WithMultipleSheets, ToCollection
-// ToModel
-// WithMappedCells
+class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
 {
     /**
     * @param array $row
@@ -28,27 +24,21 @@ class RegionalImport implements WithMultipleSheets, ToCollection
         ];
     }
 
-    // public function mapping(): array
-    // {
-    //     return [
-    //         'namaRegional'  => 'D1',
-    //     ];
-    // }
+    public function mapping(): array
+    {
+        return [
+            'namaRegional'  => 'D1',
+        ];
+    }
 
     
 
-    // public function model(array $row)
-    // {
-    //     dd($row);
-    //     return new Regional([
-    //         'namaRegional' => $row['namaRegional'],
-    //         'createdBy' => Auth::user()->name,
-    //         'createdTime' => Carbon::now(),
-    //     ]);
-    // }
-
-    public function collection(Collection $rows)
+    public function model(array $row)
     {
-        dd($rows);
+        return new Regional([
+            'namaRegional' => $row['namaRegional'],
+            'createdBy' => Auth::user()->name,
+            'createdTime' => Carbon::now(),
+        ]);
     }
 }

@@ -8,7 +8,7 @@ class Witel extends Model
 {
     protected $table = "witel";
 
-    protected $fillable = ['codeWitel','namaWitel','createdBy','createdTime', 'modifiedBy', 'modifiedTime'];
+    protected $fillable = ['namaWitel','createdBy','createdTime', 'modifiedBy', 'modifiedTime'];
 
     public $timestamps = false;
 }
