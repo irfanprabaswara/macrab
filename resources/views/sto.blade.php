@@ -3,7 +3,7 @@
 @section('head')
 @endsection
 
-@section('body') 
+@section('body')
 <div class="app-container">
         <div class="app-content">
             <div class="content-wrapper">
@@ -17,6 +17,8 @@
                                         <th>Regional</th>
                                         <th>Witel</th>
                                         <th>STO</th>
+                                        <th>Kode STO</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

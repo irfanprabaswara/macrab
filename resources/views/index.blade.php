@@ -132,100 +132,75 @@
                             <table id="datatable3" class="display nowrap" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>First name</th>
-                                        <th>Last name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                        <th>Extn.</th>
-                                        <th>E-mail</th>
-                                        <th>First name</th>
-                                        <th>Last name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                        <th>Extn.</th>
-                                        <th>E-mail</th>
-                                        <th>First name</th>
-                                        <th>Last name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                        <th>Extn.</th>
-                                        <th>E-mail</th>
-                                        <th>Extn.</th>
-                                        <th>E-mail</th>
+                                        <th>IP GPON</th>
+                                        <th>Panel</th>
+                                        <th>Slot</th>
+                                        <th>Port</th>
+                                        <th>Rak</th>
+                                        <th>Panel</th>
+                                        <th>Slot</th>
+                                        <th>Port</th>
+                                        <th>Rak</th>
+                                        <th>Panel</th>
+                                        <th>Slot</th>
+                                        <th>Core</th>
+                                        <th>FE</th>
+                                        <th>Closure 1</th>
+                                        <th>Closure 2</th>
+                                        <th>Closure 3</th>
+                                        <th>In Panel</th>
+                                        <th>Port</th>
+                                        <th>Out PS Ke-</th>
+                                        <th>Out Panel</th>
+                                        <th>Core</th>
+                                        <th>Distribusi</th>
+                                        <th>Core</th>
+                                        <th>ODP</th>
+                                        <th>Jenis ODP</th>
+                                        <th>Alamat ODP</th>
+                                        <th>LAT</th>
+                                        <th>LONG</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($mancore as $m)
                                     <tr>
-                                        <td>tea</td>
-                                        <td>hollow</td>
-                                        <td>exchange</td>
-                                        <td>means</td>
-                                        <td>ask</td>
-                                        <td>lungs</td>
-                                        <td>window</td>
-                                        <td>verb</td>
-                                        <td>create</td>
-                                        <td>sometime</td>
-                                        <td>officer</td>
-                                        <td>author</td>
-                                        <td>thread</td>
-                                        <td>military</td>
-                                        <td>combination</td>
-                                        <td>bad</td>
-                                        <td>jar</td>
-                                        <td>trouble</td>
-                                        <td>material</td>
-                                        <td>busy</td>
-                                        <td>nose</td>
-                                        <td>exist</td>
-                                        <td>temperature</td>
-                                        <td>station</td>
-                                        <td>dark</td>
-                                        <td>scene</td>
-                                        <td>cook</td>
-                                        <td>recent</td>
-                                        <td>key</td>
+                                        <td>{{ $m->ipGpon }}</td>
+                                        <td>{{ $m->panel }}</td>
+                                        <td>{{ $m->slot }}</td>
+                                        <td>{{ $m->port }}</td>
+                                        <td>{{ $m->rak }}</td>
+                                        <td>{{ $m->panel }}</td>
+                                        <td>{{ $m->slot }}</td>
+                                        <td>{{ $m->port }}</td>
+                                        <td>{{ $m->rak }}</td>
+                                        <td>{{ $m->panel }}</td>
+                                        <td>{{ $m->slot }}</td>
+                                        <td>{{ $m->idStatusCore }}</td>
+                                        <td>{{ $m->lat1, $m->long1 }}</td>
+                                        <td>{{ $m->lat2, $m->long2 }}</td>
+                                        <td>{{ $m->lat3, $m->long3 }}</td>
+                                        <td>{{ $m->inPanel }}</td>
+                                        <td>{{ $m->portIn }}</td>
+                                        <td>{{ $m->outPsKe }}</td>
+                                        <td>{{ $m->outPanel }}</td>
+                                        <td>{{ $m->portOut }}</td>
+                                        <td>{{ $m->idStatusCore }}</td>
+                                        <td>{{ $m->dis }}</td>
+                                        <td>{{ $m->core }}</td>
+                                        <td>{{ $m->idStatusData }}</td>
+                                        <td>{{ $m->codeOdp }}</td>
+                                        <td>{{ $m->alamatOdp }}</td>
+                                        <td>{{ $m->latitude }}</td>
+                                        <td>{{ $m->longitude }}</td>
+                                        <td>
+                                            <a href="/mancore/edit/{{ $m->idGpon }}">Edit</a>
+                                            |
+                                            <a href="/mancore/hapus/{{ $m->idGpon }}">Hapus</a>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>shop</td>
-                                        <td>luck</td>
-                                        <td>time</td>
-                                        <td>either</td>
-                                        <td>park</td>
-                                        <td>key</td>
-                                        <td>summer</td>
-                                        <td>distance</td>
-                                        <td>ride</td>
-                                        <td>into</td>
-                                        <td>had</td>
-                                        <td>numeral</td>
-                                        <td>you</td>
-                                        <td>near</td>
-                                        <td>teach</td>
-                                        <td>were</td>
-                                        <td>your</td>
-                                        <td>running</td>
-                                        <td>possibly</td>
-                                        <td>swim</td>
-                                        <td>merely</td>
-                                        <td>own</td>
-                                        <td>word</td>
-                                        <td>experiment</td>
-                                        <td>happy</td>
-                                        <td>agree</td>
-                                        <td>shells</td>
-                                        <td>left</td>
-                                        <td>fair</td>
-                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -237,6 +212,85 @@
 
 @endsection
 
+@section('include')
+@endsection
+
 @section('java')
+{{-- <script>
+    $(document).ready(function() {
+        $("#datatable3").DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'pageLength',
+                'copy',
+                'csv',
+                'excel',
+                'pdf',
+                'print'
+            ],
+            responsive: true,
+            processing: true,
+            serverSide: false,
+            // language: {
+            //     url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json'
+            // },
+            ajax: "{{ url('/proteksi_tower/ajax_ese') }}",
+            columns: [{
+                    data: 'no'
+                },
+                {
+                    data: 'id_section'
+                },
+                {
+                    data: 'id_tower'
+                },
+                {
+                    data: 'counter_ese',
+                },
+                {
+                    data: 'foto_counter_ese',
+                    orderable: false,
+                    render: function(data, type, row, meta) {
+                        return '<img style="width:150px; height:150px;"' +
+                            'src="{{ url('/storage/images/tower_ese/1000/') }}/' + data +
+                            '"/>';
+                    }
+                },
+                {
+                    data: 'box_ese'
+                },
+                {
+                    data: 'pita_magnetik'
+                },
+                {
+                    data: 'down_konduktor'
+                },
+                {
+                    data: 'bola_ese'
+                },
+                {
+                    data: 'grounding'
+                },
+                {
+                    data: 'nama_pegawai'
+                },
+                {
+                    data: 'keterangan'
+                },
+                {
+                    data: 'created_at'
+                },
+                {
+                    data: 'updated_at'
+                },
+                {
+                    data: 'btnEditDelete'
+                },
+            ],
+        });
+    });
+
+</script> --}}
 
 @endsection
+

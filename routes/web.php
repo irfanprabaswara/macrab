@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< Updated upstream
 
 //route CRUD
 Route::get('/users','UsersController@index');
@@ -22,27 +23,25 @@ Route::get('/users/hapus/{id}','UsersController@hapus');
 
 
 // empty session
+=======
+// empty session (Jika belum login)
+>>>>>>> Stashed changes
 Route::group(['middleware' => ['guest']], function () {
-    //login user
     Route::get('/login', 'Auth\LoginControl@get_login');
     Route::post('/login', 'Auth\LoginControl@post_login');
-
-    //register user baru
-    Route::get('/register', 'UserPengguna\UserPenggunaControl@insert_user');
-    Route::post('/register/post_user', 'UserPengguna\UserPenggunaControl@post_user');
 });
 
-//Logout
-Route::get('logout', '\App\Http\Controllers\Auth\IndexHomeControl@logout');
-
-
-// import excel
-Route::post('/regional/import_excel', 'ExcelController@import_excel');
-
+// Jika sudah login
 Route::group(['middleware' => ['ceklogin']], function () {
+
     // home
     Route::get('/', 'IndexHomeControl@get');
     Route::get('/home', 'IndexHomeControl@get');
+    // logout
+    Route::get('/logout', 'IndexHomeControl@logout');
+
+    // import excel
+    Route::post('/regional/import_excel', 'ExcelController@import_excel');
 
     // my ticket
     Route::get('/mytickets', 'IndexHomeControl@get_mytickets');
@@ -57,6 +56,7 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/sto/hapus/{id}','stoController@delete');
     // Route::get('/sto', 'Sto\StoController@get_list_sto_admin');
 
+<<<<<<< Updated upstream
     // witel
     Route::get('/witel', 'WitelController@index');
     Route::get('/witel/tambah','WitelController@Add');
@@ -68,11 +68,17 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
+=======
+    // TODO MANCORE
+    Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
+>>>>>>> Stashed changes
 
     Route::get('/historydata', 'HistoryDataControl@get');
 
-    // TODO MANCORE
-    Route::get('/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
+    //? MENDAPATKAN LIST DATA MANCORE
+    Route::get('/', 'Mancore\MancoreControl@index');
+    Route::get('/mancore/ajax_mancore', 'Mancore\AjaxMancoreControl@get_ajax_mancore');
+
 
     Route::get('/excelhome', 'ExcelController@index');
 
