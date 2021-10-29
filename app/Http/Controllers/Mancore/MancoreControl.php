@@ -20,14 +20,15 @@ class MancoreControl extends Controller
         gpon.panel,
         gpon.slot,
         gpon.port,
-        ftmea.rak,
-        ftmea.panel,
-        ftmea.slot,
-        ftmea.port,
+        ftmea.rak as earak,
+        ftmea.panel as eapanel,
+        ftmea.slot as easlot,
+        ftmea.port as eaport,
         ftmoa.rak,
         ftmoa.panel,
         ftmoa.slot,
         feeder.idStatusCore,
+        feeder.fe,
         feeder.lat1,
         feeder.lat2,
         feeder.long1,
@@ -35,7 +36,6 @@ class MancoreControl extends Controller
         feeder.lat3,
         feeder.long3,
         statuscore.statusCore,
-        odc.odcCode,
         odc.inPanel,
         odc.portIn,
         odc.outPsKe,
@@ -130,42 +130,10 @@ class MancoreControl extends Controller
             distribusi.idFtmEa = odp.idFtmEa)
     AND
         (
-            distribusi.idGpon = odp.idGpon)");
-        // ->Join('ftmea', 'ftmea.idGpon', '=', 'gpon.idGpon')
-        // ->Join('ftmoa', function ($join) {
-        //     $join->on('ftmoa.idGpon', '=', 'ftmea.idGpon')
-        //         ->where('ftmea.idFtmEa', 'ftmoa.idFtmEa');
-        // })
-        // ->Join('feeder', function ($join) {
-        //     $join->on('feeder.idFtmOa', '=', 'ftmoa.idFtmOa')
-        //         ->where('ftmoa.idFtmEa', 'feeder.idFtmEa')
-        //         ->where('ftmoa.idGpon', 'feeder.idGpon');
-        // })
-        // ->Join('odc', function ($join) {
-        //     $join->on('odc.idFeeder', '=', 'feeder.idFeeder')
-        //         ->where('feeder.idFtmOa', 'odc.idFtmOa')
-        //         ->where('feeder.idFtmEa', 'odc.idFtmEa')
-        //         ->where('feeder.idGpon', 'odc.idGpon');
-        // })
-        // ->Join('distribusi', function ($join) {
-        //     $join->on('distribusi.idOdc', '=', 'odc.idOdc')
-        //         ->where('odc.idFeeder', 'distribusi.idFeeder')
-        //         ->where('odc.idFtmOa', 'distribusi.idFtmOa')
-        //         ->where('odc.idFtmEa', 'distribusi.idFtmEa')
-        //         ->where('odc.idGpon', 'distribusi.idGpon');
-        // })
-        // ->Join('statuscore', 'statuscore.idStatusCore', '=', 'distribusi.idStatusCore')
-        // ->Join('odp', function ($join) {
-        //     $join->on('odp.idDistribusi', '=', 'distribusi.idDistribusi')
-        //         ->where('distribusi.idOdc', 'odp.idOdc')
-        //         ->where('distribusi.idFeeder', 'odp.idFeeder')
-        //         ->where('distribusi.idFtmOa', 'odp.idFtmOa')
-        //         ->where('distribusi.idFtmEa', 'odp.idFtmEa')
-        //         ->where('distribusi.idGpon', 'odp.idGpon');
-        // })
-        // ->select('gpon.idGpon', 'gpon.ipGpon', 'gpon.panel', 'gpon.slot', 'gpon.port', 'ftmea.rak', 'ftmea.panel', 'ftmea.slot', 'ftmea.port', 'ftmoa.rak', 'ftmoa.panel', 'ftmoa.slot', 'feeder.idStatusCore', 'feeder.lat1', 'feeder.lat2', 'feeder.long1', 'feeder.long2', 'feeder.lat3', 'feeder.long3', 'statuscore.statusCore', 'odc.odcCode', 'odc.inPanel', 'odc.portIn', 'odc.outPsKe', 'odc.outPanel', 'odc.portOut', 'distribusi.idStatusCore', 'distribusi.dis', 'distribusi.core', 'odp.idStatusData', 'odp.codeOdp', 'odp.alamatOdp', 'odp.latitude', 'odp.longitude')
-        // ->get();
+            distribusi.idGpon = odp.idGpon);");
         return view('index', ['mancore' => $mancore]);
+
+        // dd($mancore);
     }
 
     public function insert_mancore()

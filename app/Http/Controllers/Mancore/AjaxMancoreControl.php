@@ -54,7 +54,7 @@ class AjaxMancoreControl extends Controller
                     ->where('distribusi.idFtmEa', 'odp.idFtmEa')
                     ->where('distribusi.idGpon', 'odp.idGpon');
             })
-            ->select('gpon.idGpon', 'gpon.ipGpon', 'gpon.panel', 'gpon.slot', 'gpon.port', 'ftmea.rak', 'ftmea.panel', 'ftmea.slot', 'ftmea.port', 'ftmoa.rak', 'ftmoa.panel', 'ftmoa.slot', 'feeder.idStatusCore', 'feeder.lat1', 'feeder.lat2', 'feeder.long1', 'feeder.long2', 'feeder.lat3', 'feeder.long3', 'statuscore.statusCore', 'odc.odcCode', 'odc.inPanel', 'odc.portIn', 'odc.outPsKe', 'odc.outPanel', 'odc.portOut', 'distribusi.idStatusCore', 'distribusi.dis', 'distribusi.core', 'odp.idStatusData', 'odp.codeOdp', 'odp.alamatOdp', 'odp.latitude', 'odp.longitude')
+            ->select('gpon.idGpon', 'gpon.ipGpon', 'gpon.panel', 'gpon.slot', 'gpon.port', 'ftmea.rak', 'ftmea.panel', 'ftmea.slot', 'ftmea.port', 'ftmoa.rak', 'ftmoa.panel', 'ftmoa.slot', 'feeder.idStatusCore', 'feeder.fe', 'feeder.lat1', 'feeder.lat2', 'feeder.long1', 'feeder.long2', 'feeder.lat3', 'feeder.long3', 'statuscore.statusCore', 'odc.odcCode', 'odc.inPanel', 'odc.portIn', 'odc.outPsKe', 'odc.outPanel', 'odc.portOut', 'distribusi.idStatusCore', 'distribusi.dis', 'distribusi.core', 'odp.idStatusData', 'odp.codeOdp', 'odp.alamatOdp', 'odp.latitude', 'odp.longitude')
             ->get();
 
         dd($query); // Show results of log
