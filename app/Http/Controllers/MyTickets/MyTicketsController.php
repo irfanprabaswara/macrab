@@ -19,7 +19,10 @@ class MyTicketsController extends Controller
         $tiketUser = DB::table('tiket')
                 ->join('statustiket', 'tiket.idStatusTiket', '=', 'statustiket.idStatusTiket')
                 ->join('odp', 'tiket.idOdp', '=', 'odp.idOdp')
-                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy','statustiket.deskripsiStatus','odp.*')
+                ->join('odc', 'odp.idOdc', '=', 'odc.idOdc')
+                ->join('gpon', 'odp.idGpon', '=', 'gpon.idGpon')
+                ->join('ftmOa', 'odp.idFtmOa', '=', 'FtmOa.idFtmOa')
+                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy','statustiket.deskripsiStatus','odp.*','odc.*','gpon.*','ftmOa.*')
                 ->when($is_admin==0,function($q) use ($user_name){
                     $q->where('tiket.createdBy', '=', $user_name);
                 })
@@ -38,14 +41,17 @@ class MyTicketsController extends Controller
                 return view('sto',['tiketUser' => $tiketUser]);
         
         // menampilkan list tickets 
-        // query: select dari all table
-
-        
+        // query: select dari all table 
     }
 
     public function get_details_ticket_admin()
     { 
-        // nampilin detai??
+        $approve_tiket = DB::table('tiket')
+              ->where('idTiket', 3)
+              ->update(['idStatus' => 1]);
+              ->get();
+
+              return view('tiket',['tiketUser' => $approve_tiket);
     }
 
     public function post_approve()

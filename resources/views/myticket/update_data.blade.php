@@ -56,15 +56,15 @@
                                             <td>{{ $s->idTiket }}</td>
                                             <td>{{ $s->idGpon }}</td>
                                             <td>{{ $s->idFtmEa }}</td>
-                                            <td>FTMOA Rack</td>
-                                            <td>FTMOA Panel</td>
-                                            <td>FTMOA Slot</td>
+                                            <td>{{ $s->rak }}</td>
+                                            <td>{{ $s->panel }}</td>
+                                            <td>{{ $s->slot }}</td>
                                             <td>{{ $s->idFtmOa }}</td>
                                             <td>{{ $s->idFeeder }}</td>
-                                            <td>ODC IN Panel</td>
+                                            <td>{{ $s->inPanel }}</td>
                                             <td>ODC Port</td>
                                             <td>ODC Out PS Ke-</td>
-                                            <td>ODC Out Panel</td>
+                                            <td>{{ $s->outPanel }}</td>
                                             <td>{{ $s->idOdp }}</td>
                                             <td>{{ $s->idDistribusi }}</td>
                                             <td>ODP Core</td>
