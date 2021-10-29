@@ -22,12 +22,9 @@ Route::get('/users/hapus/{id}','UsersController@hapus');
 
 
 // empty session
-<<<<<<< Updated upstream
 
 // empty session (Jika belum login)
 
-=======
->>>>>>> Stashed changes
 // empty session (Jika belum login)
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', 'Auth\LoginControl@get_login');
@@ -70,13 +67,10 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
-<<<<<<< Updated upstream
 
     // TODO MANCORE
     Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
 
-=======
->>>>>>> Stashed changes
     // TODO MANCORE
     Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
 
