@@ -11,7 +11,6 @@
 |
 */
 
-<<<<<<< Updated upstream
 
 //route CRUD
 Route::get('/users','UsersController@index');
@@ -23,9 +22,9 @@ Route::get('/users/hapus/{id}','UsersController@hapus');
 
 
 // empty session
-=======
+
 // empty session (Jika belum login)
->>>>>>> Stashed changes
+
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', 'Auth\LoginControl@get_login');
     Route::post('/login', 'Auth\LoginControl@post_login');
@@ -56,7 +55,6 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/sto/hapus/{id}','stoController@delete');
     // Route::get('/sto', 'Sto\StoController@get_list_sto_admin');
 
-<<<<<<< Updated upstream
     // witel
     Route::get('/witel', 'WitelController@index');
     Route::get('/witel/tambah','WitelController@Add');
@@ -68,10 +66,10 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // logout
     Route::get('/logout', 'WelcomeControl@logout');
-=======
+
     // TODO MANCORE
     Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
->>>>>>> Stashed changes
+
 
     Route::get('/historydata', 'HistoryDataControl@get');
 
