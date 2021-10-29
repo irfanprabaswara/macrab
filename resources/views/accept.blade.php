@@ -13,13 +13,12 @@
                     <div class="row">
                         <div class="col">
                             <div class="page-description">
-                                <h1>Management User</h1>
+                                <h1>Management Register User</h1>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-						<a href="/users/tambah"> + Tambah Pegawai Baru</a>
                             <table id="datatable3" class="display nowrap" style="width:100%">
                                 <thead>
 								<tr>
@@ -36,9 +35,7 @@
 			<td>{{ $p->email }}</td>
 			<td>{{ $p->address }}</td>
 			<td>
-				<a href="/users/edit/{{ $p->id }}">Edit</a>
-				|
-				<a href="/users/hapus/{{ $p->id }}">Hapus</a>
+				<a href="/accept/{{ $p->id }}">Approval</a>
 			</td>
 		</tr>
 		@endforeach
@@ -53,45 +50,6 @@
 
 
 
-
-<!-- <div class="app-container">
-        <div class="app-content">
-            <div class="content-wrapper">
-                <div class="container">
-                <div class="card">
-                        <div class="card-body">
-					<div class="col">
-                        <h5>Data Management Core</h5>
-                    </div>
-	<a href="/users/tambah"> + Tambah Pegawai Baru</a>
-						<table border="3">
-		<tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-			<th>Opsi</th>
-		</tr>
-		@foreach($users as $p)
-		<tr>
-			<td>{{ $p->name }}</td>
-			<td>{{ $p->nik }}</td>
-			<td>{{ $p->email }}</td>
-			<td>{{ $p->address }}</td>
-			<td>
-				<a href="/users/edit/{{ $p->id }}">Edit</a>
-				|
-				<a href="/users/hapus/{{ $p->id }}">Hapus</a>
-			</td>
-		</tr>
-		@endforeach
-	</table>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 @endsection
 
 @section('java')

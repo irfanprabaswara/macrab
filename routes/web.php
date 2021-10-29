@@ -19,6 +19,8 @@ Route::post('/users/store','UsersController@store');
 Route::get('/users/edit/{id}','UsersController@edit');
 Route::post('/users/update','UsersController@update');
 Route::get('/users/hapus/{id}','UsersController@hapus');
+Route::get('/accept','UsersController@accept');
+Route::get('/accept/{id}','UsersController@approve');
 
 
 // empty session

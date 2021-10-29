@@ -17,6 +17,29 @@ class UsersController extends Controller
  
     }
 
+	public function accept()
+    {
+    	// mengambil data dari table users
+    	$users = DB::table('users')-> where('status', '=', 0) ->get();
+ 
+    	// mengirim data pegawai ke view index
+    	return view('accept',['users' => $users]);
+ 
+    }
+
+	public function approve($id)
+    {
+    	// mengambil data dari table users
+    	// $users = DB::table('users')-> where('status', '=', 0) ->get();
+		$users = DB::table('users')
+              ->where('id', $id)
+              ->update(['status' => 1]);
+ 
+    	// mengirim data pegawai ke view index
+    	return redirect('/accept');
+ 
+    }
+
 	// method untuk menampilkan view form tambah pegawai
 	public function tambah()
 	{
