@@ -9,10 +9,16 @@ use Illuminate\Support\Facades\DB;
 
 class IndexHomeControl extends Controller
 {
-    public function logout(Request $request) 
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/login')
+            ->withSuccess('Anda Telah Keluar!');
     }
 
     public function get()
@@ -24,7 +30,7 @@ class IndexHomeControl extends Controller
         }
     }
 
-    
+
     public function get_mytickets()
     {
         if (empty(Auth::user())) {

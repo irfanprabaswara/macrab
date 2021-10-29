@@ -20,7 +20,7 @@
                                 <i class="material-icons">add</i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="addDropdownLink">
-                                <li><a class="dropdown-item" href="insert_mancore">Tambah Data</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/') }}/mancore/insert_mancore">Tambah Data</a></li>
                             </ul>
                         </li>
                         <!-- <li class="nav-item dropdown hidden-on-mobile">

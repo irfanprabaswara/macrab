@@ -20,7 +20,7 @@ class StoController extends Controller
             ->join('regional', 'sto.idregional', '=', 'regional.idRegional')
             ->select('regional.namaRegional', 'witel.namaWitel', 'sto.namaSto','sto.idSto', 'sto.codeSto')
             ->get();
-        // dd($sto);
+
             return view('sto',['sto' => $sto]);
     }
 
