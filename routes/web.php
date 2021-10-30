@@ -11,7 +11,6 @@
 |
 */
 
-<<<<<<< HEAD
 
 //route CRUD
 Route::get('/users','UsersController@index');
@@ -25,9 +24,7 @@ Route::get('/accept/{id}','UsersController@approve');
 
 
 // empty session
-=======
 // Jika belum login
->>>>>>> ec653cb53a6fc776d669990b020b263f687bc8ab
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/login', 'Auth\LoginControl@get_login');
     Route::post('/login', 'Auth\LoginControl@post_login');

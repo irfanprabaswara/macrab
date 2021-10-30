@@ -8,7 +8,7 @@ class Odc extends Model
 {
     protected $table = "odc";
 
-    protected $fillable = ['idFeeder','idFtmOa','idFtmEa','idGpon','idSto','idWitel','idRegional','inPanel','portIn','outPsKe','outPanel','portOut','createdBy','createdTime','modifiedBy','modifiedTime'];
+    protected $fillable = ['idFeeder','idFtmOa','idFtmEa','idGpon','idSto','idWitel','idRegional','inPanel','portIn','outPsKe','outPanel','portOut','codeOdc','createdBy','createdTime','modifiedBy','modifiedTime'];
 
     public $timestamps = false;
 }
