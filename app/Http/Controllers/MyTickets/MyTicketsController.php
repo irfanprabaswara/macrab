@@ -17,12 +17,12 @@ class MyTicketsController extends Controller
         // var_dump($user_name);
         $is_admin = Auth::user()->is_admin;
         $tiketUser = DB::table('tiket')
-                ->join('statustiket', 'tiket.idStatusTiket', '=', 'statustiket.idStatusTiket')
-                ->join('odp', 'tiket.idOdp', '=', 'odp.idOdp')
-                ->join('odc', 'odp.idOdc', '=', 'odc.idOdc')
-                ->join('gpon', 'odp.idGpon', '=', 'gpon.idGpon')
-                ->join('ftmOa', 'odp.idFtmOa', '=', 'FtmOa.idFtmOa')
-                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy','statustiket.deskripsiStatus','odp.*','odc.*','gpon.*','ftmOa.*')
+                ->leftJoin('statustiket', 'tiket.idStatusTiket', '=', 'statustiket.idStatusTiket')
+                ->leftJoin('odp', 'tiket.idOdp', '=', 'odp.idOdp')
+                ->leftJoin('odc', 'tiket.idOdc', '=', 'odc.idOdc')
+                ->leftJoin('gpon', 'tiket.idGpon', '=', 'gpon.idGpon')
+                ->leftJoin('ftmOa', 'tiket.idFtmOa', '=', 'FtmOa.idFtmOa')
+                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy as user_name','statustiket.deskripsiStatus','odp.*','odc.*','gpon.*','ftmOa.*')
                 ->when($is_admin==0,function($q) use ($user_name){
                     $q->where('tiket.createdBy', '=', $user_name);
                 })
@@ -46,12 +46,11 @@ class MyTicketsController extends Controller
 
     public function get_details_ticket_admin()
     { 
-        $approve_tiket = DB::table('tiket')
-              ->where('idTiket', 3)
-              ->update(['idStatus' => 1]);
-              ->get();
+        // $approve_tiket = DB::table('tiket')
+        //       ->where('idTiket', 3)
+        //       ->update(['idStatus' => 1]);
 
-              return view('tiket',['tiketUser' => $approve_tiket);
+        //       return view('tiket',['tiketUser' => $approve_tiket);
     }
 
     public function post_approve()
@@ -60,11 +59,13 @@ class MyTicketsController extends Controller
         // mengubah status tiket jadi disetujui di database
     }
 
-    public function post_decline()
+    public function post_decline($idTiket)
     {
-        // decline ticket by admin
-        // mengubah status tiket jadi ga disetujui di database
+        DB::table("tiket")
+        ->where('idTiket', $idTiket)
+        ->update(['idStatusTiket' => 2]);
 
+        return redirect('/mytickets');
     }
 
 

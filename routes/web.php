@@ -38,6 +38,9 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/mytickets', 'MyTickets\MyTicketsController@get_mytickets');
     // Route::get('/mytickets', 'MyTickets\MyTicketsController@get_list_tickets_admin');
 
+    Route::get('/mytickets/decline/{idTiket}', 'MyTickets\MyTicketsController@post_decline');
+
+
     // sto
     Route::get('/sto', 'StoController@index');
     Route::get('/sto/tambah','StoController@Add');

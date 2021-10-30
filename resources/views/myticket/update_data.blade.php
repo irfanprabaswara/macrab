@@ -45,7 +45,6 @@
                                             <th>Alamat ODP</th>
                                             <th>Lat</th>
                                             <th>Lon</th>
-                                            <th>Status</th>
                                             <th>User</th>
                                             <th>Keterangan</th>
                                         </tr>
@@ -73,13 +72,16 @@
                                             <td>{{ $s->alamatOdp }}</td>
                                             <td>{{ $s->latitude }}</td>
                                             <td>{{ $s->longitude }}</td>
-                                            <td>{{ $s->deskripsiStatus }}</td>
-                                            <td>{{ $s->createdBy }}</td>
+                                            <td>{{ $s->user_name }}</td>
                                             <td>
                                                 @if(Auth::user()->is_admin)
-                                                <a href="/sto/edit/{{ $s->idTiket }}">approve</a>
-                                                |
-                                                <a href="/sto/hapus/{{ $s->idTiket }}">decline</a>
+                                                    @if($s->deskripsiStatus=='Pending')
+                                                    <a href="/sto/edit/{{ $s->idTiket }}">approve</a>
+                                                    |
+                                                    <a href="{{url('/mytickets/decline/'.$s->idTiket)}}">decline</a>
+                                                    @else
+                                                    {{$s->deskripsiStatus}}
+                                                    @endif
                                                 @else
                                                 {{$s->deskripsiStatus}}
                                                 @endif
