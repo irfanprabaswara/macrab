@@ -76,7 +76,7 @@
                                             <td>
                                                 @if(Auth::user()->is_admin)
                                                     @if($s->deskripsiStatus=='Pending')
-                                                    <a href="/sto/edit/{{ $s->idTiket }}">approve</a>
+                                                    <a href="{{url('/mytickets/approve/'.$s->idTiket)}}">approve</a>
                                                     |
                                                     <a href="{{url('/mytickets/decline/'.$s->idTiket)}}">decline</a>
                                                     @else

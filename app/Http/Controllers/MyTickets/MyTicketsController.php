@@ -53,10 +53,21 @@ class MyTicketsController extends Controller
         //       return view('tiket',['tiketUser' => $approve_tiket);
     }
 
-    public function post_approve()
+    public function post_approve($idTiket)
     { 
-        // approve ticket by admin
-        // mengubah status tiket jadi disetujui di database
+        DB::table("tiket")
+        ->where('idTiket', $idTiket)
+        ->update(['idStatusTiket' => 1]);
+
+        $idOdp = $this->getIdOdpFromTicket($idTiket);
+        $odp = $this->getOdpById($idOdp);
+
+        if(isset($odp)){
+            $this->insertToOdpTemp($odp);
+        }
+
+        return redirect('/mytickets');
+
     }
 
     public function post_decline($idTiket)
@@ -65,9 +76,55 @@ class MyTicketsController extends Controller
         ->where('idTiket', $idTiket)
         ->update(['idStatusTiket' => 2]);
 
+        $idOdp = $this->getIdOdpFromTicket($idTiket);
+        $odp = $this->getOdpById($idOdp);
+
+        if(isset($odp)){
+            DB::table("odp")
+            ->where('idOdp', $idOdp)
+            ->update(['codeOdp' => '']);
+            $this->insertToOdpTemp($odp);
+        }
+
         return redirect('/mytickets');
     }
 
+    public function getIdOdpFromTicket($idTiket){
+        $tiket=DB::table("tiket")
+        ->where('idTiket', $idTiket)
+        ->first();
+
+        return $tiket->idOdp;
+    }
+
+    public function getOdpById($idOdp){
+        $odp=DB::table("odp")
+        ->where('idOdp', $idOdp)
+        ->first();
+
+        return $odp;
+    }
+
+    public function insertToOdpTemp($odp){
+        $odpTemp = (array) $odp;
+        $idOdpTemp = $odp->idOdp;
+
+        unset(
+            $odpTemp['idOdp'],
+            $odpTemp['idRegional'],
+            $odpTemp['idDistribusi'],
+            $odpTemp['idOdc'],
+            $odpTemp['idFeeder'],
+            $odpTemp['idFtmOa'],
+            $odpTemp['idFtmEa'],
+            $odpTemp['idGpon'],
+            $odpTemp['idSto'],
+            $odpTemp['idWitel']
+        );
+
+        $odpTemp['idOdpTemp'] = $idOdpTemp;
+        DB::table("odpTemp")->insert($odpTemp);
+    }
 
 
 
