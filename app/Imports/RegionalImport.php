@@ -22,7 +22,9 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\DB;
 
-class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
+class RegionalImport implements WithMultipleSheets, ToCollection
+// ToModel
+// WithMappedCells
 {
     /**
     * @param array $row
@@ -37,16 +39,26 @@ class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
         ];
     }
 
-    public function mapping(): array
-    {
-        return [
-            'namaRegional'  => 'D1',
-        ];
-    }
+    // public function mapping(): array
+    // {
+    //     return [
+    //         'namaRegional'  => 'D1',
+    //     ];
+    // }
 
     
 
-    public function model(array $row)
+    // public function model(array $row)
+    // {
+    //     dd($row);
+    //     return new Regional([
+    //         'namaRegional' => $row['namaRegional'],
+    //         'createdBy' => Auth::user()->name,
+    //         'createdTime' => Carbon::now(),
+    //     ]);
+    // }
+
+    public function collection(Collection $rows)
     {
         // dd($rows);
         //get regional id
@@ -63,7 +75,7 @@ class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
 
         //get sto id
         $sto = Sto::firstOrCreate([
-            'codeSto' => $rows[2][3]
+            'namaSto' => $rows[2][3]
             ]);
         $idSto = $sto->idSto;
 
@@ -95,7 +107,7 @@ class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
         // dd($gpon->idGpon);
         foreach ($rows as $index=>$row) 
         {
-                if($index>7)
+                if($index>7 && $row[1]!= null )
                 {
                     $gpon = Gpon::firstOrCreate([
                             'idSto' => $idSto,
@@ -126,7 +138,8 @@ class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
                         ],
                         [
                             'createdBy'=> Auth::user()->name,
-                            'createdTime'=>Carbon::now()->toDateTimeString()
+
+'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idftmEa = $ftmea->idFtmEa;
                     
@@ -213,20 +226,10 @@ class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
                         ]);
                     $idDistribusi = $distribusi->idDistribusi;
                     
-                    $jenisOdp = DB::table('jenisodp')->where('codeJenisOdp', '=', $row[25])
-                        ->select('idJenisOdp')
-                        ->get();
-                    if($idJenisOdp = null)
-                    {
-                        $idJenisOdp = null;
-                    }
-                    else
-                    {
-                        $idJenisOdp = $jenisOdp[0]->idJenisOdp;
-                    }
-                        // dd($idJenisOdp);
-
-                    //insert table odp
+                    // $idJenisOdp = DB::table('jenisodp')->where('codeJenisOdp', '=', $row[25])
+                    //     ->select('idJenisOdp')
+                    //     ->get();
+//insert table odp
                     $odp = Odp::firstOrCreate([
                         'idDistribusi' => $idDistribusi,
                         'idOdc' => $idOdc,
@@ -237,7 +240,7 @@ class RegionalImport implements WithMultipleSheets, WithMappedCells, ToModel
                         'idSto' => $idSto,
                         'idWitel' => $idWitel,
                         'idRegional' => $idRegional,
-                        'idJenisOdp' => $idJenisOdp, 
+                        'idJenisOdp' => '1', 
                         'idStatusData' => '1',
                         'codeOdp' => $row[24],
                         'alamatOdp' => $row[26],
