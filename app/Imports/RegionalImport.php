@@ -107,80 +107,41 @@ class RegionalImport implements WithMultipleSheets, ToCollection
         // dd($gpon->idGpon);
         foreach ($rows as $index=>$row) 
         {
-                if($index>7)
+                if($index>7 && $row[1]!= null )
                 {
-                    //insert table gpon
-                    $cekGpon = Gpon::select('idGpon')
-                            ->where('idSto', '=', 1)
-                            ->where('idWitel', '=', 1)
-                            ->where('idRegional', '=', 1)
-                            ->where('ipGpon', '=', "192.168.1.1")
-                            ->where('panel', '=', 0)
-                            ->where('slot', '=', 1)
-                            ->where('port', '=', 1)
-                            ->get();
-                    if ($cekGpon->isEmpty())
-                    {
-                        dd("empty");
-                        DB::table('gpon')->insert([
+                    $gpon = Gpon::firstOrCreate([
                             'idSto' => $idSto,
                             'idWitel' => $idWitel,
-                            'idRegional' => $idRegional,	
-                            'ipGpon' => 1,
-                            'panel'=> 1,
-                            'slot' => 1,	
-                            'port' => 1,	
-                            'createdBy' => Auth::user()->name,	
-                            'createdTime' => Carbon::now()->toDateTimeString(),	
-                            'modifiedBy' => Auth::user()->name,
-                            'modifiedTime' => Carbon::now()->toDateTimeString()
+                            'idRegional' => $idRegional,
+                            'ipGpon' => $row[1],
+                            'panel' => $row[2],
+                            'slot' => $row[3],
+                            'port' => $row[4],
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
-                        $users = \DB::insert("INSERT INTO gpon (idSto, idWitel, idRegional, ipGpon, panel, slot, port, createdBy, createdTime, modifiedBy, modifiedTime) 
-                        VALUES ('1', '1', '1', '123.1.1.1', '1', '1', '1', 'uhuy', '2021-10-30 19:27:33.000000', 'uhuy', '2021-10-30 19:27:33.000000')");
-                    }
-                    else
-                    {
-                        dd("isi");
-                        $idGpon = $cekGpon->idGpon;
-                        dd($idGpon);
-                    }
-                    $idGpon = DB::select("SELECT idGpon 
-                        FROM gpon
-                        ORDER BY idGpon DESC
-                        LIMIT 1");
-                        dd($idGpon);
-                    // $idGpon = $gpon->idGpon;
-                    dd($idGpon);
-                    DB::table('gpon')
-                        ->where('idGpon', $idGpon)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
-                    dd($idGpon);
+                    $idGpon = $gpon->idGpon;
+                        /////////////////////////////////////////////////////////////////////////////////////////
+                    
                     //insert table ftmea
                     $ftmea = Ftmea::firstOrCreate([
-                        'idGpon' => $idGpon,
-                        'idSto' => $idSto,
-                        'idWitel' => $idWitel,
-                        'idRegional' => $idRegional,
-                        'rak' => $row[5],
-                        'panel' => $row[6],
-                        'slot' => $row[7],
-                        'port' => $row[8]
+                            'idGpon' => $idGpon,
+                            'idSto' => $idSto,
+                            'idWitel' => $idWitel,
+                            'idRegional' => $idRegional,
+                            'rak' => $row[5],
+                            'panel' => $row[6],
+                            'slot' => $row[7],
+                            'port' => $row[8],
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idftmEa = $ftmea->idFtmEa;
-                    DB::table('ftmea')
-                        ->where('idFtmEa', $idftmEa)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
-
+                    
                     //insert table ftmoa
                     $ftmoa = Ftmoa::firstOrCreate([
                         'idFtmEa' => $idftmEa,
@@ -191,18 +152,14 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         'rak' => $row[9],
                         'panel' => $row[10],
                         'slot' => $row[11],
-                        'core' => $row[12]
+                        'core' => $row[12],
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idftmOa = $ftmoa->idFtmOa;
-                    DB::table('ftmoa')
-                        ->where('idFtmOa', $idftmOa)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
-
+                    
                     //insert table feeder
                     $feeder = Feeder::firstOrCreate([
                         'idFtmOa' => $idftmOa,
@@ -218,17 +175,13 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         'lat2' => $row[15],
                         'long2' => $row[15],
                         'lat3' => $row[16],
-                        'long3' => $row[16]
+                        'long3' => $row[16],
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idFeeder = $feeder->idFeeder;
-                    DB::table('feeder')
-                        ->where('idFeeder', $idFeeder)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
 
                     //insert table odc
                     $odc = Odc::firstOrCreate([
@@ -244,18 +197,14 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         'outPsKe' => $row[19],
                         'outPanel' => $row[20],
                         'portOut' => $row[21],
-                        'codeOdc' => $codeOdc
+                        'codeOdc' => $codeOdc,
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idOdc = $odc->idOdc;
-                    DB::table('odc')
-                        ->where('idOdc', $idOdc)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
-
+                    
                     //insert table distribusi
                     $distribusi = Distribusi::firstOrCreate([
                         'idOdc' => $idOdc,
@@ -268,21 +217,18 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         'idRegional' => $idRegional,
                         'dis' => $row[22],
                         'idStatusCore' => '1',
-                        'core' => $row[23]
+                        'core' => $row[23],
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idDistribusi = $distribusi->idDistribusi;
-                    DB::table('distribusi')
-                        ->where('idDistribusi', $idDistribusi)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
                     
-                    $idJenisOdp = DB::table('jenisodp')->where('codeJenisOdp', '=', $row[25])
-                        ->select('idJenisOdp')
-                        ->get();
+                    // $idJenisOdp = DB::table('jenisodp')->where('codeJenisOdp', '=', $row[25])
+                    //     ->select('idJenisOdp')
+                    //     ->get();
+
                     //insert table odp
                     $odp = Odp::firstOrCreate([
                         'idDistribusi' => $idDistribusi,
@@ -294,22 +240,19 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         'idSto' => $idSto,
                         'idWitel' => $idWitel,
                         'idRegional' => $idRegional,
-                        'idJenisOdp' => $idJenisOdp, 
+                        'idJenisOdp' => '1', 
                         'idStatusData' => '1',
                         'codeOdp' => $row[24],
                         'alamatOdp' => $row[26],
                         'latitude' => $row[27],
-                        'longitude' => $row[28]
+                        'longitude' => $row[28],
+                        ],
+                        [
+                            'createdBy'=> Auth::user()->name,
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
-                    $idOdp = $odp->idOdp;
-                    DB::table('odp')
-                        ->where('idOdp', $idOdp)
-                        ->update(
-                            ['createdBy' => Auth::user()->name],
-                            ['createdTime' => Carbon::now()->toDateTimeString()],
-                            ['modifiedBy' => Auth::user()->name],
-                            ['modifiedTime' => Carbon::now()->toDateTimeString()]
-                        );
+                    // $idOdp = $odp->idOdp;
+                    // dd('hahahihi');
                 }
                 else
                 {

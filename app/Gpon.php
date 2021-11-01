@@ -8,10 +8,9 @@ class Gpon extends Model
 {
     protected $table = "gpon";
 
-    // protected $primaryKey = 'idGpon';
+    protected $primaryKey = 'idGpon';
     protected $fillable = ['idSto','idWitel','idRegional','ipGpon','panel','slot','port','createdBy','createdTime','modifiedBy','modifiedTime'];
-
-    // const CREATED_AT = 'createdTime';
-    // const UPDATED_AT = 'createdTime';
+    const CREATED_AT = 'createdTime';
+    const UPDATED_AT = 'modifiedTime';
     public $timestamps = false;
 }

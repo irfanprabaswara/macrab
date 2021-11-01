@@ -2,6 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Regional;
+use App\Witel;
+use App\Sto;
+use App\Gpon;
+use App\Ftmea;
+use App\Ftmoa;
+use App\Feeder;
+use App\Odc;
+use App\Distribusi;
+use App\Odp;
+use App\JenisOdp;
 use App\Imports\RegionalImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -35,6 +46,10 @@ class ExcelController extends Controller
  
 		// notifikasi dengan session
 		Session::flash('sukses','Data Excel Berhasil Diimport!');
+
+		// return response()->json([
+		// 	"data"=>Gpon::orderBy('idGpon', 'desc')->first()
+		// ],200);
  
 		// alihkan halaman kembali
 		return redirect('/');
