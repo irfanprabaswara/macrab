@@ -131,7 +131,30 @@ class MancoreControl extends Controller
     AND
         (
             distribusi.idGpon = odp.idGpon);");
-        return view('index', ['mancore' => $mancore]);
+    $totalFeeder = DB::select("SELECT COUNT(*) as TotalFeeder
+    FROM feeder;");
+    $feederOk = DB::select("SELECT COUNT(*) as feederOk
+    FROM feeder
+    WHERE idstatuscore = 1;");
+    $feederNg = DB::select("SELECT COUNT(*) as feederNg
+    FROM feeder
+    WHERE idstatuscore = 2;");
+
+    $totalDistribusi = DB::select("SELECT COUNT(*) as totalDistribusi
+    FROM distribusi;");
+    $distribusiOk = DB::select("SELECT COUNT(*) as distribusiOk
+    FROM feeder
+    WHERE idstatuscore = 1;");
+    $distribusiNg = DB::select("SELECT COUNT(*) as distribusiNg
+    FROM feeder
+    WHERE idstatuscore = 2;");
+    $distribusiIdle = DB::select("SELECT COUNT(*) as distribusiIdle
+    FROM odp
+    WHERE codeOdp = null OR codeOdp = '';");
+
+    // dd($totalFeeder);
+        return view('index', ['mancore' => $mancore, 'totalFeeder' => $totalFeeder, 'feederOk' => $feederOk, 'feederNg' => $feederNg,
+        'totalDistribusi' => $totalDistribusi, 'distribusiOk' => $distribusiOk, 'distribusiNg' => $distribusiNg, 'distribusiIdle' => $distribusiIdle]);
 
         // dd($mancore);
     }

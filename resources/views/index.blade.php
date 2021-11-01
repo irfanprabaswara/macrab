@@ -27,7 +27,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Total</span><br>
-                                            <span class="text-dark fw-bolder fs-2">24</span>
+                                            <span class="text-dark fw-bolder fs-2">{{$totalFeeder[0]->TotalFeeder}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Isi</span><br>
-                                            <span class="text-dark fw-bolder fs-2">24</span>
+                                            <span class="text-dark fw-bolder fs-2">{{$totalFeeder[0]->TotalFeeder}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Rusak</span><br>
-                                            <span class="text-danger fw-bolder fs-2">24</span>
+                                            <span class="text-danger fw-bolder fs-2">{{$feederNg[0]->feederNg}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Total</span><br>
-                                            <span class="text-dark fw-bolder fs-2">24</span>
+                                            <span class="text-dark fw-bolder fs-2">{{$totalDistribusi[0]->totalDistribusi}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Isi</span><br>
-                                            <span class="text-dark fw-bolder fs-2">24</span>
+                                            <span class="text-dark fw-bolder fs-2">{{$totalDistribusi[0]->totalDistribusi}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Idle</span><br>
-                                            <span class="text-success fw-bolder fs-2">24</span>
+                                            <span class="text-success fw-bolder fs-2">{{$distribusiIdle[0]->distribusiIdle}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Rusak</span><br>
-                                            <span class="text-danger fw-bolder fs-2">24</span>
+                                            <span class="text-danger fw-bolder fs-2">{{$distribusiNg[0]->distribusiNg}}</span>
                                         </div>
                                     </div>
                                 </div>
