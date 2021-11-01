@@ -51,7 +51,7 @@
                                     <div class="widget-info-navigation-container">
                                         <div class="widget-info-navigation-content">
                                             <span class="text-muted">Core Idle</span><br>
-                                            <span class="text-success fw-bolder fs-2">24</span>
+                                            <span class="text-success fw-bolder fs-2">{{$feederNg[0]->feederNg}}</span>
                                         </div>
                                     </div>
                                 </div>

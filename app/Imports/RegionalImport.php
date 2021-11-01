@@ -75,7 +75,7 @@ class RegionalImport implements WithMultipleSheets, ToCollection
 
         //get sto id
         $sto = Sto::firstOrCreate([
-            'namaSto' => $rows[2][3]
+            'codeSto' => $rows[2][3]
             ]);
         $idSto = $sto->idSto;
 
@@ -107,7 +107,7 @@ class RegionalImport implements WithMultipleSheets, ToCollection
         // dd($gpon->idGpon);
         foreach ($rows as $index=>$row) 
         {
-                if($index>7 && $row[1]!= null )
+                if($index>7)
                 {
                     $gpon = Gpon::firstOrCreate([
                             'idSto' => $idSto,
@@ -225,9 +225,18 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         ]);
                     $idDistribusi = $distribusi->idDistribusi;
                     
-                    // $idJenisOdp = DB::table('jenisodp')->where('codeJenisOdp', '=', $row[25])
-                    //     ->select('idJenisOdp')
-                    //     ->get();
+                    $jenisOdp = DB::table('jenisodp')->where('codeJenisOdp', '=', $row[25])
+                        ->select('idJenisOdp')
+                        ->get();
+                    if($idJenisOdp = null)
+                    {
+                        $idJenisOdp = null;
+                    }
+                    else
+                    {
+                        $idJenisOdp = $jenisOdp[0]->idJenisOdp;
+                    }
+                        // dd($idJenisOdp);
 
                     //insert table odp
                     $odp = Odp::firstOrCreate([
@@ -240,7 +249,7 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         'idSto' => $idSto,
                         'idWitel' => $idWitel,
                         'idRegional' => $idRegional,
-                        'idJenisOdp' => '1', 
+                        'idJenisOdp' => $idJenisOdp, 
                         'idStatusData' => '1',
                         'codeOdp' => $row[24],
                         'alamatOdp' => $row[26],
