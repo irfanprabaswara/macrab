@@ -30,4 +30,10 @@
 <script src="{{ url('/') }}/assets/plugins/highlight/highlight.pack.js"></script>
 <script src="{{ url('/') }}/assets/plugins/datatables/datatables.min.js"></script>
 <script src="{{ url('/') }}/assets/js/pages/datatables.js"></script>
+
+<!-- Extension Tambahan -->
 <script src="{{ url('/') }}/assets/js/pages/input-mask.js"></script>
+<script src="{{ url('/') }}/assets/js/pages/blockui.js"></script>
+<script src="{{ url('/') }}/assets/plugins/blockUI/jquery.blockUI.min.js"></script>
+{{-- <script src="{{ url('/') }}/assets/plugins/idle-timer/idle-timer.min.js"></script>
+<script src="{{ url('/') }}/assets/js/pages/session-timeout.js"></script> --}}

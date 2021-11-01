@@ -10,7 +10,7 @@
                 <div class="container">
                 <div class="card">
                         <div class="card-body">
-                           @foreach($sto as $p)
+                           @foreach($witel as $p)
                             <form action="/witel/update" method="post">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id" value="{{ $p-> idWitel}}"> <br/>

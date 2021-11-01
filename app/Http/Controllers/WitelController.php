@@ -17,9 +17,9 @@ class WitelController extends Controller
     {
         $witel = DB::table('witel')
             ->join('regional', 'witel.idRegional', '=', 'regional.idRegional')
-            ->select('regional.namaRegional', 'witel.namaWitel', 'witel.idWitel')
+            ->select('regional.namaRegional', 'witel.namaWitel', 'witel.idWitel', 'witel.codeWitel')
             ->get();
-
+        // dd($witel);
             return view('witel',['witel' => $witel]);
             // return view('witel');
     }
