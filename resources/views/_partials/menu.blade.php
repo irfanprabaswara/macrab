@@ -23,12 +23,15 @@
                                 <li><a class="dropdown-item" href="{{ url('/') }}/mancore/insert_mancore">Tambah Data</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown hidden-on-mobile">
-                            <a class="nav-link dropdown-toggle" href="#" id="exploreDropdownLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="material-icons-outlined">upload</i>
-                            </a>
-                        </li>
+                        <li style="display: flex; align-items:center;" class="nav-item dropdown hidden-on-mobile">
+                                    <form action="{{url('/regional/import_excel')}}" method="post" id="form-import-excel" enctype="multipart/form-data">
+                                        <label for="importExcel" style="line-height: 0px;">
+                                            <i class="nav-link material-icons">upload</i>
+                                        </label>
+                                        {{ csrf_field() }}
+                                        <input type="file" name="file" id="importExcel" accept=".xls, .xlsx" onchange="form.submit()" style="display:none">
+                                    </form>
+                                </li>
                         <li class="nav-item dropdown hidden-on-mobile">
                             <a class="nav-link dropdown-toggle" href="#" id="exploreDropdownLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
