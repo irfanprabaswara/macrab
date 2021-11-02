@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Exports;
 use App\Regional;
 use App\Witel;
 use App\Sto;
@@ -13,49 +12,35 @@ use App\Odc;
 use App\Distribusi;
 use App\Odp;
 use App\JenisOdp;
-use App\Imports\RegionalImport;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Support\Facades\Session;
-use App\Exports\RegionalExport;
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+// use Illuminate\Support\Facades\DB;
+use DB;
 
-class ExcelController extends Controller
+class RegionalExport implements FromView
+// ,FromQuery
+// ,FromCollection
 {
-    public function import_excel(Request $request) 
-	{
-		// validasi
-		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
-		]);
- 
-		// menangkap file excel
-		$file = $request->file('file');
-        // dd($request->file('file'));
-		// membuat nama file unik
-		$nama_file = rand().$file->getClientOriginalName();
- 
-		// upload ke folder file_siswa di dalam folder public
-		$file->move('file_excel',$nama_file);
- 
-		// import data
-		Excel::import(new RegionalImport, public_path('/file_excel/'.$nama_file));
- 
-		// notifikasi dengan session
-		Session::flash('sukses','Data Excel Berhasil Diimport!');
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    // public function collection()
+    // {
+    //     return Regional::all();
+    // }
 
-		// return response()->json([
-		// 	"data"=>Gpon::orderBy('idGpon', 'desc')->first()
-		// ],200);
- 
-		// alihkan halaman kembali
-		return redirect('/');
-	}
+    // public function query()
+    // {
+    //     return Invoice::query();
+    // }
 
-	public function export_excel()
-	{
-		// return Excel::download(new RegionalExport, 'Excel.xlsx');
-		$mancore = DB::select("SELECT
+    public function view(): View
+    {
+        $mancore = \DB::select("SELECT
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
@@ -172,7 +157,6 @@ class ExcelController extends Controller
     AND
         (
             distribusi.idGpon = odp.idGpon);");
-
-return view('index', ['mancore' => $mancore]);
-	}
+        return view('export', ['mancore' => $mancore]);
+    }
 }

@@ -33,11 +33,12 @@
                                     </form>
                                 </li>
                         <li class="nav-item dropdown hidden-on-mobile">
-                            <a class="nav-link dropdown-toggle" href="#" id="exploreDropdownLink" role="button"
+                            <a class="nav-link dropdown-toggle" href="/regional/export_excel" id="exploreDropdownLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="material-icons-outlined">download</i>
                             </a>
                         </li>
+                        <li><a href="/regional/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a></li>
                     </ul>
 
                 </div>

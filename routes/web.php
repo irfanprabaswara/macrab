@@ -102,4 +102,5 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
 
     Route::get('/excelhome', 'ExcelController@index');
+    Route::get('/regional/export_excel', 'ExcelController@export_excel');
 });
