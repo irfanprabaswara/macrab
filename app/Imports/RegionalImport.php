@@ -75,7 +75,7 @@ class RegionalImport implements WithMultipleSheets, ToCollection
 
         //get sto id
         $sto = Sto::firstOrCreate([
-            'namaSto' => $rows[2][3]
+            'codeSto' => $rows[2][3]
             ]);
         $idSto = $sto->idSto;
 
@@ -87,27 +87,9 @@ class RegionalImport implements WithMultipleSheets, ToCollection
         // dd($idGpon);
         // dd(Carbon::now()->toDateTimeString());
         
-        // $gpon = Gpon::firstOrCreate(
-        //     [
-        //         'idSto' => 1,
-        //         'idWitel' => 1,
-        //         'idRegional' => 1,
-        //         'ipGpon' => "192.168.1.1",
-        //         'panel' => 1,
-        //         'slot' => 1,
-        //         'port' => 1,
-        //     ],
-        //     [
-        //         'createdBy' => 1,
-        //         'modifiedBy' => 1
-        //     ]);
-        // return response()->json([
-        //     'id'=>$gpon->idGpon
-        // ]);
-        // dd($gpon->idGpon);
         foreach ($rows as $index=>$row) 
         {
-                if($index>7 && $row[1]!= null )
+                if($index>7)
                 {
                     $gpon = Gpon::firstOrCreate([
                             'idSto' => $idSto,
@@ -123,7 +105,7 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                             'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idGpon = $gpon->idGpon;
-                        /////////////////////////////////////////////////////////////////////////////////////////
+
                     
                     //insert table ftmea
                     $ftmea = Ftmea::firstOrCreate([
@@ -138,8 +120,7 @@ class RegionalImport implements WithMultipleSheets, ToCollection
                         ],
                         [
                             'createdBy'=> Auth::user()->name,
-
-'createdTime'=>Carbon::now()->toDateTimeString()
+                            'createdTime'=>Carbon::now()->toDateTimeString()
                         ]);
                     $idftmEa = $ftmea->idFtmEa;
                     
