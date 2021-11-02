@@ -31,14 +31,14 @@
                                         {{ csrf_field() }}
                                         <input type="file" name="file" id="importExcel" accept=".xls, .xlsx" onchange="form.submit()" style="display:none">
                                     </form>
-                                </li>
+                        </li>   
                         <li class="nav-item dropdown hidden-on-mobile">
-                            <a class="nav-link dropdown-toggle" href="/regional/export_excel" id="exploreDropdownLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a target="_blank"  class="nav-link dropdown-toggle" href="/regional/export_excel" id="exploreDropdownLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="material-icons-outlined">download</i>
                             </a>
                         </li>
-                        <li><a href="/regional/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a></li>
+                        <!-- <li><a href="/regional/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a></li> -->
                     </ul>
 
                 </div>
