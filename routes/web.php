@@ -64,8 +64,8 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/mytickets/decline/{idTiket}', 'MyTickets\MyTicketsController@post_decline');
 
     Route::get('/mytickets/booking_core', 'MyTickets\MyTicketsController@get_mytickets_bookingcore');
-    Route::get('/mytickets/booking_core/approve/{idTiket}', 'MyTickets\MyTicketsController@post_approve_bookingcore');
-    Route::get('/mytickets/booking_core/decline/{idTiket}', 'MyTickets\MyTicketsController@post_decline_bookingcore');
+    Route::get('/mytickets/booking_core/approve/{idTiket}', 'MyTickets\MyTicketsController@post_approve');
+    Route::get('/mytickets/booking_core/decline/{idTiket}', 'MyTickets\MyTicketsController@post_decline');
 
     // sto
     Route::get('/sto', 'StoController@index');

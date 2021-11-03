@@ -127,5 +127,29 @@ class MyTicketsController extends Controller
     }
 
 
+    public function get_mytickets_bookingcore()
+    {
+        $user_name = Auth::user()->name;
+        // var_dump($user_name);
+        $is_admin = Auth::user()->is_admin;
+        $tiketUser = DB::table('tiket')
+                ->leftJoin('statustiket', 'tiket.idStatusTiket', '=', 'statustiket.idStatusTiket')
+                ->leftJoin('odp', 'tiket.idOdp', '=', 'odp.idOdp')
+                ->leftJoin('odc', 'odp.idOdc', '=', 'odc.idOdc')
+                ->leftJoin('distribusi', 'odp.idDistribusi', '=', 'Distribusi.idDistribusi')
+                ->leftJoin('feeder', 'odp.idFeeder', '=', 'feeder.idFeeder')
+                ->leftJoin('ftmEa', 'odp.idFtmEa', '=', 'FtmEa.idFtmEa')
+                ->leftJoin('ftmOa', 'odp.idFtmOa', '=', 'FtmOa.idFtmOa')
+                ->leftJoin('gpon', 'odp.idGpon', '=', 'gpon.idGpon')
+                ->leftJoin('jenisodp', 'odp.idJenisOdp', '=', 'jenisOdp.idJenisOdp')
+                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy as user_name','statustiket.deskripsiStatus','odp.*','odc.*', 'gpon.ipGpon as ipgpon', 'gpon.panel as gpon_panel', 'gpon.port as gpon_port', 'gpon.slot as gpon_slot','gpon.*', DB::raw("CONCAT(gpon.panel, '/', gpon.port, '/', gpon.slot) AS gpon_all"),'ftmEa.rak as ftmea_rak', 'ftmEa.panel as ftmea_panel', 'ftmEa.slot as ftmea_slot', 'ftmEa.port as ftmea_port', DB::raw("CONCAT(ftmea.rak, '/', ftmea.panel, '/', ftmea.slot, '/', ftmea.port) as ftmea_all"), 'ftmOa.rak as ftmoa_rak', 'ftmOa.panel as ftmoa_panel','ftmOa.slot as ftmoa_slot', 'ftmOa.core as ftmoa_core', DB::raw("CONCAT(ftmoa.rak, '/', ftmoa.panel, '/', ftmoa.slot, '/', ftmoa.core) as ftmoa_all"), 'feeder.idStatusCore as fedstatcor', DB::raw("CONCAT(feeder.lat1, ' ', feeder.long1) as clos1"), DB::raw("CONCAT(feeder.lat2, ' ', feeder.long2) as clos2"), DB::raw("CONCAT(feeder.lat3, ' ', feeder.long3) as clos3"),'dis', 'distribusi.idStatusCore as disstatcor', 'odc.inPanel as odc_inpanel', 'odc.portIn as odc_portin', 'odc.outPsKe as odc_outpske', 'odc.outPanel as odc_outpanel', 'odc.portOut as odc_portout', 'jenisOdp.codeJenisOdp as jenis_odp')
+                ->when($is_admin==0,function($q) use ($user_name){
+                    $q->where('tiket.createdBy', '=', $user_name);
+                })
+                ->get();
+
+                return view('myticket\booking_core',['tiketUser' => $tiketUser]);
+    }
+
 
 }
