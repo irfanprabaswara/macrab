@@ -7,7 +7,7 @@
     <div class="app app-auth-sign-in align-content-stretch d-flex flex-wrap justify-content-end">
         <div class="app-auth-background">
 
-        </div>
+        <!-- </div> -->
         <div class="app-auth-container">
             <div class="logo">
                 <a href="index.html">Macrab</a>

@@ -12,7 +12,7 @@
 */
 
 
-//route CRUD
+//route CRUD for users
 Route::get('/users','UsersController@index');
 Route::get('/users/tambah','UsersController@tambah');
 Route::post('/users/store','UsersController@store');
