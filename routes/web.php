@@ -94,18 +94,14 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // TODO MANCORE
     Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
+    Route::post('/mancore/post_mancore', 'Mancore\MancoreControl@post_mancore');
+    Route::post('/mancore/doAddGpon', 'Mancore\MancoreControl@doAddGpon');
 
-    // TODO MANCORE
-    Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
 
     Route::get('/historydata', 'HistoryDataControl@get');
 
     //? MENDAPATKAN LIST DATA MANCORE
     Route::get('/', 'Mancore\MancoreControl@index');
-    Route::get('/mancore/ajax_mancore', 'Mancore\AjaxMancoreControl@get_ajax_mancore');
-
-    //? MENDAPATKAN LIST DATA MANCORE HISTORY
-    Route::get('/historydata', 'HistoryDataControl@index');
 
 
     Route::get('/excelhome', 'ExcelController@index');

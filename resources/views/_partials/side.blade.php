@@ -20,8 +20,8 @@
                         class="material-icons-two-tone">dashboard</i>Management Core</a>
             </li>
             <li>
-                <a href="index.html" class="active"><i
-                        class="material-icons-two-tone">assessment</i>Data OTDR</a>
+                <a href="#" class="active"><i class="material-icons-two-tone">assessment</i>Data
+                    OTDR</a>
             </li>
             <li>
                 <a href=""><i class="material-icons-two-tone">check_box</i>Validasi Data<i
@@ -47,10 +47,12 @@
                     </li>
                 </ul>
             </li>
+            <?php if (Auth::user()->is_admin == 1) { ?>
             <li>
-                <a href="index.html" class="active"><i
-                        class="material-icons-two-tone">history</i>History Data</a>
+                <a href="{{ url('/') }}/historydata" class="active"><i class="material-icons-two-tone">history</i>History
+                    Data</a>
             </li>
+            <?php } ?>
         </ul>
     </div>
 </div>

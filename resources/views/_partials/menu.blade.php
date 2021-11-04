@@ -20,7 +20,11 @@
                                 <i class="material-icons">add</i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="addDropdownLink">
-                                <li><a class="dropdown-item" href="{{ url('/') }}/mancore/insert_mancore">Tambah Data</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/') }}/mancore/insert_mancore">Tambah Data Mancore</a></li>
+                                <?php if (Auth::user()->is_admin != 0) { ?>
+                                    <li><a class="dropdown-item" href="{{ url('/') }}/sto/tambah">Tambah Data STO</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/') }}/witel/tambah">Tambah Data Witel</a></li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li style="display: flex; align-items:center;" class="nav-item dropdown hidden-on-mobile">
