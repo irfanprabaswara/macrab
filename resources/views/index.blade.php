@@ -198,6 +198,8 @@
                                                 <td>
                                                     <a href="/mancore/edit/{{ $m->idGpon }}">Edit</a>
                                                     |
+                                                    <a href="/mancore/booking/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">Booking</a>
+                                                    |
                                                     <a href="/mancore/hapus/{{ $m->idGpon }}">Hapus</a>
                                                 </td>
                                             </tr>

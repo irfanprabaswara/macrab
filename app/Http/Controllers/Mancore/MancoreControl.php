@@ -11,6 +11,7 @@ use App\Distribusi;
 use App\Feeder;
 use App\Ftmea;
 use App\Ftmoa;
+use App\Gpon as AppGpon;
 use App\Models\GPON\GPON;
 use App\Odc;
 use App\Odp;
@@ -22,20 +23,23 @@ class MancoreControl extends Controller
 {
     public function index()
     {
-        $mancore = DB::select("SELECT
+        $mancore = DB::select("SELECT DISTINCT
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
         gpon.slot,
         gpon.port,
+        ftmea.idFtmEa,
         ftmea.rak as earak,
         ftmea.panel as eapanel,
         ftmea.slot as easlot,
         ftmea.port as eaport,
+        ftmoa.idFtmOa,
         ftmoa.rak as oarak,
         ftmoa.panel as oapanel,
         ftmoa.slot as oaslot,
 		ftmoa.core as oacore,
+        feeder.idFeeder,
         feeder.idStatusCore,
         feeder.fe,
         feeder.lat1,
@@ -45,14 +49,17 @@ class MancoreControl extends Controller
         feeder.lat3,
         feeder.long3,
         statuscore.statusCore,
+        odc.idOdc,
         odc.inPanel,
         odc.portIn,
         odc.outPsKe,
         odc.outPanel,
         odc.portOut,
+        distribusi.idDistribusi,
         distribusi.idStatusCore,
         distribusi.dis,
         distribusi.core,
+        odp.idOdp,
         odp.idStatusData,
         odp.codeOdp,
         odp.alamatOdp,
@@ -140,30 +147,32 @@ class MancoreControl extends Controller
     AND
         (
             distribusi.idGpon = odp.idGpon);");
-    $totalFeeder = DB::select("SELECT COUNT(*) as TotalFeeder
+        $totalFeeder = DB::select("SELECT COUNT(*) as TotalFeeder
     FROM feeder;");
-    $feederOk = DB::select("SELECT COUNT(*) as feederOk
+        $feederOk = DB::select("SELECT COUNT(*) as feederOk
     FROM feeder
     WHERE idstatuscore = 1;");
-    $feederNg = DB::select("SELECT COUNT(*) as feederNg
+        $feederNg = DB::select("SELECT COUNT(*) as feederNg
     FROM feeder
     WHERE idstatuscore = 2;");
 
-    $totalDistribusi = DB::select("SELECT COUNT(*) as totalDistribusi
+        $totalDistribusi = DB::select("SELECT COUNT(*) as totalDistribusi
     FROM distribusi;");
-    $distribusiOk = DB::select("SELECT COUNT(*) as distribusiOk
+        $distribusiOk = DB::select("SELECT COUNT(*) as distribusiOk
     FROM feeder
     WHERE idstatuscore = 1;");
-    $distribusiNg = DB::select("SELECT COUNT(*) as distribusiNg
+        $distribusiNg = DB::select("SELECT COUNT(*) as distribusiNg
     FROM feeder
     WHERE idstatuscore = 2;");
-    $distribusiIdle = DB::select("SELECT COUNT(*) as distribusiIdle
+        $distribusiIdle = DB::select("SELECT COUNT(*) as distribusiIdle
     FROM odp
     WHERE codeOdp = null OR codeOdp = '';");
 
-    // dd($totalFeeder);
-        return view('index', ['mancore' => $mancore, 'totalFeeder' => $totalFeeder, 'feederOk' => $feederOk, 'feederNg' => $feederNg,
-        'totalDistribusi' => $totalDistribusi, 'distribusiOk' => $distribusiOk, 'distribusiNg' => $distribusiNg, 'distribusiIdle' => $distribusiIdle]);
+        // dd($totalFeeder);
+        return view('index', [
+            'mancore' => $mancore, 'totalFeeder' => $totalFeeder, 'feederOk' => $feederOk, 'feederNg' => $feederNg,
+            'totalDistribusi' => $totalDistribusi, 'distribusiOk' => $distribusiOk, 'distribusiNg' => $distribusiNg, 'distribusiIdle' => $distribusiIdle
+        ]);
 
         // dd($mancore);
     }
@@ -172,9 +181,9 @@ class MancoreControl extends Controller
     {
         $data['title'] = 'Tambah Data Mancore';
         $getGpon = DB::table('gpon')
-        ->select('*')
-        ->get();
-        return view('mancore.insert_mancore', $data, [ 'getGpon'=> $getGpon]);
+            ->select('*')
+            ->get();
+        return view('mancore.insert_mancore', $data, ['getGpon' => $getGpon]);
     }
 
     public function post_mancore(Request $request)
@@ -187,7 +196,7 @@ class MancoreControl extends Controller
         //     ['slot' => $request->slot],
         //     ['port' => $request->port]
         // );
-        $idGpon =$request->ipGpon;
+        $idGpon = $request->ipGpon;
 
         $ftmea = Ftmea::firstOrCreate(
             ['idGpon' => $idGpon],
@@ -276,9 +285,10 @@ class MancoreControl extends Controller
         //     return redirect('/')->with('Tambah Data Sukses !');
         // }
     }
-    public function doAddGpon(Request $request){
+    public function doAddGpon(Request $request)
+    {
 
-       $data = DB::table('gpon')->insert([
+        $data = DB::table('gpon')->insert([
             'ipGpon' => $request->ipgpon,
             // 'namaWitel' => $request->witelName,
             // 'codeWitel' => $request->witelCode
@@ -287,13 +297,25 @@ class MancoreControl extends Controller
 
         // exit();
     }
-    public function getGpon(Request $request){
+    public function getGpon(Request $request)
+    {
 
         $witel = DB::table('gpon')
-        ->select('*')
-        ->get();
+            ->select('*')
+            ->get();
 
-         // exit();
-     }
+        // exit();
+    }
 
+    public function edit_booking_core($idOdp)
+    {
+        $data['title'] = 'Booking Core';
+        $data['mancore'] = Gpon::getRowId($idOdp);
+
+        if (Auth::user()->is_admin != 0) {
+            return view('mancore.edit_mancore', $data);
+        } else {
+            return redirect()->back();
+        }
+    }
 }
