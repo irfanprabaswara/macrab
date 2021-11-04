@@ -55,7 +55,7 @@ class ExcelController extends Controller
 
 	public function export_excel()
 	{
-		$mancore = \DB::select("SELECT
+		$mancore = \DB::select("SELECT DISTINCT
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
