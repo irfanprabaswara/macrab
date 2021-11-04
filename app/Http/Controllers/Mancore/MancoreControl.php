@@ -22,7 +22,7 @@ class MancoreControl extends Controller
 {
     public function index()
     {
-        $mancore = \DB::select("SELECT
+        $mancore = DB::select("SELECT
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
