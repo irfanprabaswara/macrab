@@ -175,10 +175,10 @@
                                                 <td>{{ $m->eapanel }}</td>
                                                 <td>{{ $m->easlot }}</td>
                                                 <td>{{ $m->eaport }}</td>
-                                                <td>{{ $m->rak }}</td>
-                                                <td>{{ $m->panel }}</td>
-                                                <td>{{ $m->slot }}</td>
-                                                <td>{{ $m->idStatusCore }}</td>
+                                                <td>{{ $m->oarak }}</td>
+                                                <td>{{ $m->oapanel }}</td>
+                                                <td>{{ $m->oaslot }}</td>
+                                                <td>{{ $m->oacore }}</td>
                                                 <td>{{ $m->fe }}</td>
                                                 <td>{{ $m->lat1 }}, {{ $m->long1 }}</td>
                                                 <td>{{ $m->lat2 }}, {{ $m->long2 }}</td>
