@@ -14,7 +14,7 @@ class MancoreControl extends Controller
 {
     public function index()
     {
-        $mancore = DB::select("SELECT
+        $mancore = \DB::select("SELECT
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
@@ -24,9 +24,10 @@ class MancoreControl extends Controller
         ftmea.panel as eapanel,
         ftmea.slot as easlot,
         ftmea.port as eaport,
-        ftmoa.rak,
-        ftmoa.panel,
-        ftmoa.slot,
+        ftmoa.rak as oarak,
+        ftmoa.panel as oapanel,
+        ftmoa.slot as oaslot,
+		ftmoa.core as oacore,
         feeder.idStatusCore,
         feeder.fe,
         feeder.lat1,

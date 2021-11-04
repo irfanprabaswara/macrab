@@ -1,6 +1,21 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
 <table>
     <thead>
-    <tr>
+    <tr style="border: 3px solid black">
+        <th colspan="4">GPON</th>
+        <th colspan="4">FTM EA</th>
+        <th colspan="4">FTM OA</th>
+        <th colspan="4">FEEDER</th>
+        <th colspan="5">ODC</th>
+        <th>DISTRIBUSI</th>
+        <th colspan="6">ODP</th>
+    </tr>
+    <tr style="border: 3px solid black">
         <th>IP GPON</th>
         <th>Panel</th>
         <th>Slot</th>
@@ -33,8 +48,8 @@
     </thead>
     <tbody>
         @foreach($mancore as $m)
-            <tr>
-                <td>{{ $m->ipGpon }}</td>
+            <tr nth-child(3n+1) {background:#CCC;}>
+                <td >{{ $m->ipGpon }}</td>
                 <td>{{ $m->panel }}</td>
                 <td>{{ $m->slot }}</td>
                 <td>{{ $m->port }}</td>
@@ -42,10 +57,10 @@
                 <td>{{ $m->eapanel }}</td>
                 <td>{{ $m->easlot }}</td>
                 <td>{{ $m->eaport }}</td>
-                <td>{{ $m->rak }}</td>
-                <td>{{ $m->panel }}</td>
-                <td>{{ $m->slot }}</td>
-                <td>{{ $m->idStatusCore }}</td>
+                <td>{{ $m-> oarak }}</td>
+                <td>{{ $m-> oapanel }}</td>
+                <td>{{ $m-> oaslot }}</td>
+                <td>{{ $m-> oacore }}</td>
                 <td>{{ $m->fe }}</td>
                 <td>{{ $m->lat1 }}, {{ $m->long1 }}</td>
                 <td>{{ $m->lat2 }}, {{ $m->long2 }}</td>
