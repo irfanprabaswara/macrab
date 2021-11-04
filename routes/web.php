@@ -75,9 +75,9 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/sto', 'StoController@index');
     Route::get('/sto/tambah', 'StoController@Add');
     Route::post('/sto/store', 'StoController@store');
-    Route::get('/sto/edit/{id}', 'stoController@edit');
-    Route::post('/sto/update', 'stoController@update');
-    Route::get('/sto/hapus/{id}', 'stoController@delete');
+    Route::get('/sto/edit/{id}', 'StoController@edit');
+    Route::post('/sto/update', 'StoController@update');
+    Route::get('/sto/hapus/{id}', 'StoController@delete');
     // Route::get('/sto', 'Sto\StoController@get_list_sto_admin');
 
     // witel
