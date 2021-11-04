@@ -22,7 +22,8 @@ class MyTicketsController extends Controller
                 ->leftJoin('odc', 'tiket.idOdc', '=', 'odc.idOdc')
                 ->leftJoin('gpon', 'tiket.idGpon', '=', 'gpon.idGpon')
                 ->leftJoin('ftmoa', 'tiket.idFtmOa', '=', 'ftmoa.idFtmOa')
-                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy as user_name','statustiket.deskripsiStatus','odp.*','odc.*','gpon.*','ftmOa.*')
+                ->leftJoin('sto', 'odp.idSto', '=', 'sto.idSto')
+                ->select('tiket.idTiket', 'tiket.idOdp', 'tiket.createdBy as user_name','statustiket.deskripsiStatus','odp.*','odc.*','gpon.*','ftmOa.*','sto.codeSto')
                 ->when($is_admin==0,function($q) use ($user_name){
                     $q->where('tiket.createdBy', '=', $user_name);
                 })
