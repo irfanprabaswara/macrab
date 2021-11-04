@@ -3,11 +3,18 @@
 @section('head')
 @endsection
 
-@section('body') 
+@section('body')
 <div class="app-container">
         <div class="app-content">
             <div class="content-wrapper">
                 <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="page-description">
+                                <h1>Management Witel</h1>
+                            </div>
+                        </div>
+                    </div>
                 <div class="card">
                         <div class="card-body">
                             <table id="datatable3" class="display nowrap" style="width:100%">
@@ -17,6 +24,7 @@
                                         <th>Regional</th>
                                         <th>Witel</th>
                                         <th>Kode Witel</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

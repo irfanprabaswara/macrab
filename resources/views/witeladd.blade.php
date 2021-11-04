@@ -3,11 +3,18 @@
 @section('head')
 @endsection
 
-@section('body') 
+@section('body')
 <div class="app-container">
         <div class="app-content">
             <div class="content-wrapper">
                 <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="page-description">
+                                <h1>Management Witel</h1>
+                            </div>
+                        </div>
+                    </div>
                 <div class="card">
                         <div class="card-body">
                         <form action="/witel/store" method="post">

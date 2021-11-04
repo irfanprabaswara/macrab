@@ -104,6 +104,9 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::get('/', 'Mancore\MancoreControl@index');
     Route::get('/mancore/ajax_mancore', 'Mancore\AjaxMancoreControl@get_ajax_mancore');
 
+    //? MENDAPATKAN LIST DATA MANCORE HISTORY
+    Route::get('/historydata', 'HistoryDataControl@index');
+
 
     Route::get('/excelhome', 'ExcelController@index');
     Route::get('/regional/export_excel', 'ExcelController@export_excel');

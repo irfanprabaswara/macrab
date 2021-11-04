@@ -129,7 +129,8 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <table id="datatable3" class="display nowrap" style="width:100%">
+                            <div class="table-responsive" style="padding:25px 0;">
+                                <table id="datatable1" class="display table table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>IP GPON</th>
@@ -203,6 +204,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
