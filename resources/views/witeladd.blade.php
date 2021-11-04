@@ -20,7 +20,7 @@
                         <form action="/witel/store" method="post">
                             {{ csrf_field() }}
 
-                            <label for="idRegional" class="form-label">Choose Regional</label>
+                                <label for="idRegional" class="form-label">Choose Regional</label>
                             <select id="idRegional" name='regional' class="form-select m-b-md" required="required">
                                 <option selected>Pilih Regional</option>
                                 @foreach ($regional as $r)
@@ -35,7 +35,7 @@
                             <label for="witelCode" class="form-label">Kode Witel</label>
                             <input type="text" class="form-control m-b-md" name="witelCode" aria-describedby="nama" placeholder="Kode Witel" required="required">
 
-                            <input type="submit" value="Simpan Data">
+                                <input type="submit" value="Simpan Data">
                         </form>
                         </div>
                     </div>
