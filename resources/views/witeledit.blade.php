@@ -21,14 +21,26 @@
                             <form action="/witel/update" method="post">
                                 {{ csrf_field() }}
 
-                                <input type="hidden" name="id" value="{{ $p-> idWitel}}"> <br/>
-                                Regional <label for="idRegional">Choose Regional:</label>
-                                    <select id="idRegional" name="regional">
-                                    <option value="1">Regional 6</option>
-                                    </select> <br>
-                                Witel <input type="text" required="required" name="witelName" value="{{ $p->namaWitel }}"> <br/>
-                                Kode Witel<input type="text" required="required" name="witelCode" value="{{ $p->codeWitel}}"> <br/>
-                                <input type="submit" value="Simpan Data">
+                                <label for="idRegional" class="form-label">Choose Regional</label>
+                            <select id="idRegional" name='regional' class="form-select m-b-md" required="required">
+                                <option selected>Pilih Regional</option>
+                                @foreach ($regional as $r)
+                                <option value="{{ $r->idRegional}}">{{ $r->namaRegional }}</option>
+                                @endforeach
+                            </select>
+
+                            <label for="witelName" class="form-label">Witel</label>
+                            <select id="namaWitel" name='namaWitel' class="form-select m-b-md" required="required">
+                                <option selected>Pilih Witel</option>
+                                @foreach ($witel as $w)
+                                <option value="{{ $w->namaWitel}}">{{$w->namaWitel }}</option>
+                                @endforeach
+                            </select>
+                            <label for="witelCode" class="form-label">Kode Witel</label>
+                            <input type="text" class="form-control m-b-md" name="codeWitel" aria-describedby="nama" placeholder="Kode Witel" required="required">
+                            <input type="hidden" id="idWitel" name="idWitel" value="{{ $w->idWitel}}">
+                            <input type="submit" value="Simpan Data">
+
 
                             </form>
                             @endforeach

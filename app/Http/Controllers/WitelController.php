@@ -27,7 +27,13 @@ class WitelController extends Controller
     public function Add()
     {
         // memanggil view tambah
-	    return view('witeladd');
+        $witel = DB::table('witel')
+            ->select('witel.namaWitel','witel.idWitel','witel.codeWitel')
+            ->get();
+        $regional = DB::table('regional')
+            ->select('regional.namaRegional','regional.idRegional')
+            ->get();
+	    return view('witeladd', ['witel' => $witel,'regional' => $regional]);
     }
 
     public function Store(Request $request)
@@ -45,25 +51,30 @@ class WitelController extends Controller
     public function Edit($id)
     {
         $witel = DB::table('witel')->where('idWitel',$id)->get();
-        return view('witeledit',['witel' => $witel]);
+        $regional = DB::table('regional')
+            ->select('regional.namaRegional','regional.idRegional')
+            ->get();
+            // dd($idWitel);
+        return view('witeledit',['witel' => $witel,'regional' => $regional]);
     }
     public function Update(Request $request)
     {
         // update data witel
-        DB::table('witel')->where('idWitel',$request->id)->update([
+        // dd($request);
+        DB::table('witel')->where('idWitel',$request->idWitel)->update([
             'idRegional' => $request->regional,
-            'namaWitel' => $request->witelName,
-            'codeWitel' => $request->witelCode
+            'namaWitel' => $request->namaWitel,
+            'codeWitel' => $request->codeWitel
         ]);
         // alihkan halaman ke halaman sto
         return redirect('/witel');
     }
-    
+
     public function Delete($id)
     {
         // menghapus data witel berdasarkan id yang dipilih
         DB::table('witel')->where('idWitel',$id)->delete();
-            
+
         // alihkan halaman ke halaman pegawai
         return redirect('/witel');
     }

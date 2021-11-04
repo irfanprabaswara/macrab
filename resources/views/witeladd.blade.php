@@ -23,16 +23,11 @@
                             <label for="idRegional" class="form-label">Choose Regional</label>
                             <select id="idRegional" name='regional' class="form-select m-b-md" required="required">
                                 <option selected>Pilih Regional</option>
-                                <option value="Regional_6">Regional 6</option>
-                                <option value="Regional_7">Regional 7</option>
+                                @foreach ($regional as $r)
+                                <option value="{!!$r->idRegional!!}">{{$r->namaRegional}}</option>
+                                @endforeach
                             </select>
 
-                            <label for="idWitel" class="form-label">Choose Witel</label>
-                            <select id="idWitel" name='witelName' class="form-select m-b-md" required="required">
-                                <option selected>Pilih Witel</option>
-                                <option value="Balikpapan">Balikpapan</option>
-                                <option value="Kalsel">Kalsel</option>
-                            </select>
 
                             <label for="witelName" class="form-label">Witel</label>
                             <input type="text" class="form-control m-b-md" name="witelName" aria-describedby="nama" placeholder="Masukkan Witel" required="required">
