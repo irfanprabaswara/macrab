@@ -25,6 +25,7 @@
                                 <table id="datatable1" class="display table table-bordered" style="width:100%;">
                                     <thead>
                                         <tr>
+                                            <th>STO</th>
                                             <th>IP GPON</th>
                                             <th>GPON Panel</th>
                                             <th>FTMEA Port</th>
@@ -52,7 +53,7 @@
                                     <tbody>
                                     @foreach($tiketUser as $s)
                                         <tr>
-                                            <td>{{ $s->idTiket }}</td>
+                                            <td>{{ $s->codeSto }}</td>
                                             <td>{{ $s->idGpon }}</td>
                                             <td>{{ $s->idFtmEa }}</td>
                                             <td>{{ $s->rak }}</td>
