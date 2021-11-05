@@ -52,19 +52,17 @@
 	<label for="witel" class="form-label">Witel</label>
     <select id="witel" name='witel' class="form-select m-b-md" required="required">
         <option selected>Pilih Witel</option>
-        <option value="witel_samarinda">Witel Samarinda</option>
-        <option value="witel_kalsel">Witel Kalimantan Selatan</option>
+        @foreach ($witel as $w)
+            <option value="{!!$r->idWitel!!}">{{$r->namaWitel}}</option>
+        @endforeach
     </select>
 	 
 	<label for="regional" class="form-label">Regional</label>
     <select id="Regional" name='Regional' class="form-select m-b-md" required="required">
         <option selected>Pilih Regional</option>
-        <option value="regional_1">Regional 1</option>
-        <option value="regional_2">Regional 2</option>
-        <option value="regional_3">Regional 3</option>
-        <option value="regional_4">Regional 4</option>
-        <option value="regional_5">Regional 5</option>
-        <option value="regional_6">Regional 6</option>
+        @foreach ($regional as $r)
+            <option value="{!!$r->idRegional!!}">{{$r->namaRegional}}</option>
+        @endforeach
     </select>
 	 
 	<label for="signInPassword" class="form-label">Password</label>

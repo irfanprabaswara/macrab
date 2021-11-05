@@ -43,9 +43,16 @@ class UsersController extends Controller
 	// method untuk menampilkan view form tambah pegawai
 	public function tambah()
 	{
- 
+		$regional = DB::table('regional')
+            ->select('regional.namaRegional','regional.idRegional')
+            ->get();
+
+		$witel = DB::table('witel')
+            ->select('witel.namaWitel','witel.idWitel')
+            ->get();
 		// memanggil view tambah
-		return view('tambah');
+		// return view('tambah');
+		return view('tambah', ['witel' => $witel,'regional' => $regional]);
  
 	}
  
