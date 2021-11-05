@@ -52,7 +52,7 @@
                                         <th>Alamat ODP</th>
                                         <th>LAT</th>
                                         <th>LONG</th>
-                                        {{-- <th>Action</th> --}}
+                                        <!-- {{-- <th>Action</th> --}} -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -86,11 +86,11 @@
                                         <td>{{ $h->alamatOdp }}</td>
                                         <td>{{ $h->latitude }}</td>
                                         <td>{{ $h->longitude }}</td>
-                                        {{-- <td>
+                                        <!-- {{-- <td>
                                             <a href="/mancore/edit/{{ $h->idGpon }}">Edit</a>
                                             |
                                             <a href="/mancore/hapus/{{ $h->idGpon }}">Hapus</a>
-                                        </td> --}}
+                                        </td> --}} -->
                                     </tr>
                                 @endforeach
                                 </tbody>

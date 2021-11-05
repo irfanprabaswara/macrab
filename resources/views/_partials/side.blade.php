@@ -1,6 +1,6 @@
 <div class="app-sidebar">
     <div class="logo">
-        <a href="index.html" class="logo-icon"><span class="logo-text">Macrab</span></a>
+        <a href="/" class="logo-icon"><span class="logo-text">Macrab</span></a>
         <div class="sidebar-user-switcher user-activity-online">
             <a href="#">
                 <img src="{{ url('/') }}/assets/images/avatars/avatar.png">

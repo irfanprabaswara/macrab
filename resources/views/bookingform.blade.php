@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="page-description">
-                                <h1>Management Witel</h1>
+                                <h1>Apakah Anda Yakin Akan Melakukan Booking?</h1>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,9 @@
                             <input type="hidden" id="idDistribusi" name="idDistribusi" value="{{ $s->idDistribusi}}">
                             <input type="hidden" id="idOdp" name="idOdp" value="{{ $s->idOdp}}">
                             <input type="submit" value="Simpan Data">
-
+                            <a href="/">
+                                        <button>Kembali</button>
+                            </a> 
 
                             </form>
                             @endforeach

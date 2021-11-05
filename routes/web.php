@@ -102,7 +102,9 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::post('/macore/booking/update', 'Mancore\MancoreControl@update_booking');
     Route::get('/comingsoon','IndexHomeControl@comingsoon');
 
-    Route::get('/historydata', 'HistoryDataControl@get');
+    // Route::get('/historydata', 'HistoryDataControl@get');
+    Route::get('/historydata', 'HistoryDataControl@index');
+
 
     //? MENDAPATKAN LIST DATA MANCORE
     Route::get('/', 'Mancore\MancoreControl@index');

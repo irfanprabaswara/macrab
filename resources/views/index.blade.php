@@ -133,6 +133,7 @@
                                 <table id="datatable1" class="display table table-bordered" style="width:100%;">
                                     <thead>
                                         <tr>
+                                            <th>STO</th>
                                             <th>IP GPON</th>
                                             <th>Panel</th>
                                             <th>Slot</th>
@@ -167,6 +168,7 @@
                                     <tbody>
                                         @foreach ($mancore as $m)
                                             <tr>
+                                                <td>{{ $m->codeSto }}</td>
                                                 <td>{{ $m->ipGpon }}</td>
                                                 <td>{{ $m->panel }}</td>
                                                 <td>{{ $m->slot }}</td>

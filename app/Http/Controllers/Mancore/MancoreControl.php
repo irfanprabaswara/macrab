@@ -64,7 +64,8 @@ class MancoreControl extends Controller
         odp.codeOdp,
         odp.alamatOdp,
         odp.latitude,
-        odp.longitude
+        odp.longitude,
+        sto.codeSto
     FROM
         gpon
     INNER JOIN
@@ -146,7 +147,9 @@ class MancoreControl extends Controller
             distribusi.idFtmEa = odp.idFtmEa)
     AND
         (
-            distribusi.idGpon = odp.idGpon);");
+            distribusi.idGpon = odp.idGpon)
+    LEFT JOIN sto
+            ON odp.idSto = sto.idSto;");
         $totalFeeder = DB::select("SELECT COUNT(*) as TotalFeeder
     FROM feeder;");
         $feederOk = DB::select("SELECT COUNT(*) as feederOk

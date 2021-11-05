@@ -175,7 +175,7 @@
                                             <td>
                                                 @if(Auth::user()->is_admin)
                                                     @if($s->deskripsiStatus=='Pending')
-                                                    <a href="{{url('/mytickets//booking_core/approve/'.$s->idTiket)}}">approve</a>
+                                                    <a href="{{url('/mytickets/booking_core/approve/'.$s->idTiket)}}">approve</a>
                                                     |
                                                     <a href="{{url('/mytickets/booking_core/decline/'.$s->idTiket)}}">decline</a>
                                                     @else
