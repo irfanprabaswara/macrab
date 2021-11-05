@@ -52,6 +52,15 @@
                 <a href="{{ url('/') }}/historydata" class="active"><i class="material-icons-two-tone">history</i>History
                     Data</a>
             </li>
+            <li>
+                <a href="{{ url('/') }}/user" class="active"><i class="material-icons-two-tone">assessment</i>User Data</a>
+            </li>
+            <li>
+                <a href="{{ url('/') }}/sto" class="active"><i class="material-icons-two-tone">assessment</i>STO Data</a>
+            </li>
+            <li>
+                <a href="{{ url('/') }}/witel" class="active"><i class="material-icons-two-tone">assessment</i>Witel Data</a>
+            </li>
             <?php } ?>
         </ul>
     </div>
