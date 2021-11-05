@@ -196,10 +196,12 @@
                                                 <td>{{ $m->latitude }}</td>
                                                 <td>{{ $m->longitude }}</td>
                                                 <td>
-                                                    <a href="/mancore/edit/{{ $m->idGpon }}">Edit</a>
+                                                    <!-- <a href="/mancore/edit/{{ $m->idGpon }}">Edit</a> -->
+                                                    <a href="/comingsoon">Edit</a>
                                                     <!-- <a href="/mancore/booking/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">Booking</a> -->
                                                     <a href="/mancore/booking/{{ $m->idOdp }}">Booking</a>
-                                                    <a href="/mancore/hapus/{{ $m->idGpon }}">Hapus</a>
+                                                    <!-- <a href="/mancore/hapus/{{ $m->idGpon }}">Hapus</a> -->
+                                                    <a href="/comingsoon">Hapus</a>
                                                 </td>
                                             </tr>
                                         @endforeach

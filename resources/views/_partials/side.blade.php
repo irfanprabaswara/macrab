@@ -19,11 +19,11 @@
                 <a href="{{ url('/') }}" class="active"><i
                         class="material-icons-two-tone">dashboard</i>Management Core</a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#" class="active"><i class="material-icons-two-tone">assessment</i>Data
                     OTDR</a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <a href=""><i class="material-icons-two-tone">check_box</i>Validasi Data<i
                         class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu">
@@ -34,7 +34,7 @@
                         <a href="invoice.html">Booking Core</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <a href=""><i class="material-icons-two-tone">book_online</i>My Ticket<i
                         class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
@@ -43,7 +43,7 @@
                         <a href="{{url('/mytickets')}}">My Ticket</a>
                     </li>
                     <li>
-                        <a href="invoice.html">Booking Core</a>
+                        <a href="{{url('mytickets/booking_core')}}">Approval</a>
                     </li>
                 </ul>
             </li>
@@ -53,7 +53,7 @@
                     Data</a>
             </li>
             <li>
-                <a href="{{ url('/') }}/user" class="active"><i class="material-icons-two-tone">assessment</i>User Data</a>
+                <a href="{{ url('/') }}/users" class="active"><i class="material-icons-two-tone">assessment</i>User Data</a>
             </li>
             <li>
                 <a href="{{ url('/') }}/sto" class="active"><i class="material-icons-two-tone">assessment</i>STO Data</a>

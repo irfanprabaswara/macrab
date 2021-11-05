@@ -21,6 +21,11 @@ class IndexHomeControl extends Controller
             ->withSuccess('Anda Telah Keluar!');
     }
 
+    public function comingsoon()
+    {
+        return view('comingsoon');
+    }
+
     public function get()
     {
         if (empty(Auth::user())) {
