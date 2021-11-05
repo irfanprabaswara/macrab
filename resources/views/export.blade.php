@@ -1,12 +1,13 @@
-<style>
-table, th, td {
+<!-- <style>
+table, th {
   border: 1px solid black;
   border-collapse: collapse;
 }
-</style>
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style> -->
 <table>
     <thead>
-    <tr style="border: 3px solid black">
+    <tr>
         <th colspan="4">GPON</th>
         <th colspan="4">FTM EA</th>
         <th colspan="4">FTM OA</th>
@@ -15,7 +16,7 @@ table, th, td {
         <th>DISTRIBUSI</th>
         <th colspan="6">ODP</th>
     </tr>
-    <tr style="border: 3px solid black">
+    <tr>
         <th>IP GPON</th>
         <th>Panel</th>
         <th>Slot</th>
@@ -48,7 +49,7 @@ table, th, td {
     </thead>
     <tbody>
         @foreach($mancore as $m)
-            <tr nth-child(3n+1) {background:#CCC;}>
+            <tr>
                 <td >{{ $m->ipGpon }}</td>
                 <td>{{ $m->panel }}</td>
                 <td>{{ $m->slot }}</td>

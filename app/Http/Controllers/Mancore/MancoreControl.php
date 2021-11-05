@@ -307,15 +307,36 @@ class MancoreControl extends Controller
         // exit();
     }
 
-    public function edit_booking_core($idOdp)
-    {
-        $data['title'] = 'Booking Core';
-        $data['mancore'] = Gpon::getRowId($idOdp);
+    // public function edit_booking_core($idOdp)
+    // {
+    //     $data['title'] = 'Booking Core';
+    //     $data['mancore'] = Gpon::getRowId($idOdp);
 
-        if (Auth::user()->is_admin != 0) {
-            return view('mancore.edit_mancore', $data);
-        } else {
-            return redirect()->back();
-        }
+    //     if (Auth::user()->is_admin != 0) {
+    //         return view('mancore.edit_mancore', $data);
+    //     } else {
+    //         return redirect()->back();
+    //     }
+    // }
+
+    public function booking_core($id)
+    {
+        $odp = DB::table('odp')->where('idOdp',$id)->get();
+        return view('bookingform',['odp' => $odp]);
+    }
+
+    public function update_booking(Request $request)
+    {
+        // update data witel
+        // dd($request);
+        DB::table('odp')
+              ->where('idOdp', $request->idOdp)
+              ->update(['idStatusData' => 3]);
+        DB::table('tiket')->insert([
+                ['idGpon' => $request->idGpon, 'idFtmEa' => $request->idFtmEa, 'idFtmOa' => $request->idFtmOa, 'idFeeder' => $request->idFeeder,
+                'idOdc' => $request->idOdc, 'idDist' => $request->idDistribusi, 'idOdp' => $request->idOdp, 'idStatusTiket' => 3]
+        ]);
+        // alihkan halaman ke halaman sto
+        return redirect('/');
     }
 }

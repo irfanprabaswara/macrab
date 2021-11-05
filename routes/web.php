@@ -97,7 +97,9 @@ Route::group(['middleware' => ['ceklogin']], function () {
     Route::post('/mancore/post_mancore', 'Mancore\MancoreControl@post_mancore');
     Route::post('/mancore/doAddGpon', 'Mancore\MancoreControl@doAddGpon');
 
-    Route::get('/mancore/booking/{idGpon}/{idFtmEa}/{idFtmOa}/{idFeeder}/{idOdc}/{idDistribusi}/{idOdp}', 'Mancore\MancoreControl@edit_booking_core');
+    // Route::get('/mancore/booking/{idGpon}/{idFtmEa}/{idFtmOa}/{idFeeder}/{idOdc}/{idDistribusi}/{idOdp}', 'Mancore\MancoreControl@edit_booking_core');
+    Route::get('/mancore/booking/{idOdp}', 'Mancore\MancoreControl@booking_core');
+    Route::post('/macore/booking/update', 'Mancore\MancoreControl@update_booking');
 
 
     Route::get('/historydata', 'HistoryDataControl@get');
