@@ -14,6 +14,7 @@
                         <div class="col">
                             <div class="page-description">
                                 <h1>Management Register User</h1>
+                                <a href="/users"> Kembali</a>
                             </div>
                         </div>
                     </div>

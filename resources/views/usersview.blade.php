@@ -20,6 +20,7 @@
                     <div class="card">
                         <div class="card-body">
 						<a href="/users/tambah"> + Tambah Pegawai Baru</a>
+						<a href="/accept">| Approve User</a>
                             <table id="datatable3" class="display nowrap" style="width:100%">
                                 <thead>
 								<tr>
@@ -51,47 +52,6 @@
         </div>
     </div>
 
-
-
-
-<!-- <div class="app-container">
-        <div class="app-content">
-            <div class="content-wrapper">
-                <div class="container">
-                <div class="card">
-                        <div class="card-body">
-					<div class="col">
-                        <h5>Data Management Core</h5>
-                    </div>
-	<a href="/users/tambah"> + Tambah Pegawai Baru</a>
-						<table border="3">
-		<tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-			<th>Opsi</th>
-		</tr>
-		@foreach($users as $p)
-		<tr>
-			<td>{{ $p->name }}</td>
-			<td>{{ $p->nik }}</td>
-			<td>{{ $p->email }}</td>
-			<td>{{ $p->address }}</td>
-			<td>
-				<a href="/users/edit/{{ $p->id }}">Edit</a>
-				|
-				<a href="/users/hapus/{{ $p->id }}">Hapus</a>
-			</td>
-		</tr>
-		@endforeach
-	</table>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 @endsection
 
 @section('java')
