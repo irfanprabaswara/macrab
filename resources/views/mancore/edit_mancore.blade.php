@@ -17,14 +17,18 @@
                 </div>
                 <div class="row">
                     {!! Form::open([
-                        'url' => 'mancore/post_mancore',
+                        'url' => 'mancore/update_mancore',
                         'method' => 'post',
                         'enctype' => 'multipart/form-data',
                         'class' => 'dropzone needsclick',
                         'id' => 'demo-upload'
                         ]) !!}
                         <div class="col-md-12">
-                            <input type="hidden" name="id" value="{{ $mancore->idGpon }}">
+                            <input type="text" name="idGpon" value="{{ $Gpon->idGpon }}">
+                            <input type="text" name="idFtmEa" value="{{ $FtmEa->idFtmEa }}">
+                            <input type="text" name="idFtmOa" value="{{ $FtmOa->idFtmOa }}">
+                            <input type="text" name="idFeeder" value="{{ $Feeder->idFeeder }}">
+                            <input type="text" name="idOdc" value="{{ $Odc->idOdc }}">
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="card-title">GPON</h5>
@@ -54,18 +58,18 @@
 
                                         <div class="example-content">
                                             <label for="Panel" class="form-label">Panel</label>
-                                            <input type="text" class="form-control" id="Panel" name="panel"
-                                            aria-describedby="Panel" required>
+                                            <input type="text" class="form-control" id="Panel" name="panel[]"
+                                            aria-describedby="Panel" value="{{$Gpon->idGpon}}" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Slot" class="form-label">Slot</label>
-                                            <input type="text" class="form-control" id="Slot" name="slot"
-                                            aria-describedby="Slot" required>
+                                            <input type="text" class="form-control" id="Slot" name="slot[]"
+                                            aria-describedby="Slot" value="{{$Gpon->slot}}" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="Port" name="port"
-                                            aria-describedby="Port" required>
+                                            <input type="text" class="form-control" id="Port" name="port[]"
+                                            aria-describedby="Port" value="{{$Gpon->port}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -80,21 +84,21 @@
                                         <div class="example-content">
                                             <label for="Rak" class="form-label">Rak</label>
                                             <input type="text" class="form-control" aria-label="IP address" id="Rak"
-                                            name="rak" required>
+                                            name="rak[]" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Panel" class="form-label">Panel</label>
-                                            <input type="text" class="form-control" id="Panel" name="panel"
+                                            <input type="text" class="form-control" id="Panel" name="panel[]"
                                             aria-describedby="Panel" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Slot" class="form-label">Slot</label>
-                                            <input type="text" class="form-control" id="Slot" name="slot"
+                                            <input type="text" class="form-control" id="Slot" name="slot[]"
                                             aria-describedby="Slot" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="Port" name="port"
+                                            <input type="text" class="form-control" id="Port" name="port[]"
                                             aria-describedby="Port" required>
                                         </div>
                                     </div>
@@ -109,22 +113,22 @@
                                     <div class="example-container">
                                         <div class="example-content">
                                             <label for="Rak" class="form-label">Rak</label>
-                                            <input type="text" class="form-control" aria-label="Rak" id="Rak" name="rak"
+                                            <input type="text" class="form-control" aria-label="Rak" id="Rak" name="rak[]" value="{{$FtmOa->rak}}"
                                             required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Panel" class="form-label">Panel</label>
-                                            <input type="text" class="form-control" id="Panel" name="panel"
+                                            <input type="text" class="form-control" id="Panel" name="panel[]"
                                             aria-describedby="Panel" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="Slot" class="form-label">Slot</label>
-                                            <input type="text" class="form-control" id="Slot" name="slot"
+                                            <input type="text" class="form-control" id="Slot" name="slot[]"
                                             aria-describedby="Slot" required>
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core"
+                                            <input type="text" class="form-control" id="core" name="core[]"
                                             aria-describedby="core" required>
                                         </div>
                                     </div>
@@ -214,7 +218,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="port" name="port"
+                                            <input type="text" class="form-control" id="port" name="port[]"
                                             aria-describedby="inPanel" required>
                                         </div>
                                         <div class="example-content">
@@ -224,7 +228,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core"
+                                            <input type="text" class="form-control" id="core" name="core[]"
                                             aria-describedby="core" required>
                                         </div>
                                         <div class="example-content">
@@ -269,7 +273,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="port" name="port"
+                                            <input type="text" class="form-control" id="port" name="port[]"
                                             aria-describedby="inPanel" >
                                         </div>
                                         <div class="example-content">
@@ -279,7 +283,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core"
+                                            <input type="text" class="form-control" id="core" name="core[]"
                                             aria-describedby="core" >
                                         </div>
                                         <div class="example-content">
@@ -324,7 +328,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="port" name="port"
+                                            <input type="text" class="form-control" id="port" name="port[]"
                                             aria-describedby="inPanel" >
                                         </div>
                                         <div class="example-content">
@@ -334,7 +338,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core"
+                                            <input type="text" class="form-control" id="core" name="core[]"
                                             aria-describedby="core" >
                                         </div>
                                         <div class="example-content">
@@ -379,7 +383,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="port" name="port"
+                                            <input type="text" class="form-control" id="port" name="port[]"
                                             aria-describedby="inPanel" >
                                         </div>
                                         <div class="example-content">
@@ -389,7 +393,7 @@
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core"
+                                            <input type="text" class="form-control" id="core" name="core[]"
                                             aria-describedby="core" >
                                         </div>
                                         <div class="example-content">
@@ -440,7 +444,7 @@
                             </div>
 
                             <div class="example-content">
-                                <button id="blockui-2" class="btn btn-primary">Simpan Data</button>
+                                <button type="submit" class="btn btn-primary">Simpan Data</button>
                             </div>
 
                             {!! Form::close() !!}

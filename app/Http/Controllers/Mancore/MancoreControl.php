@@ -189,6 +189,81 @@ class MancoreControl extends Controller
         return view('mancore.insert_mancore', $data, ['getGpon' => $getGpon]);
     }
 
+    public function edit_mancore($idGpon, $idFtmEa, $idFtmOa, $idFeeder, $idOdc, $idDistribusi, $idOdp)
+    {
+        $data['title'] = 'Edit Data Mancore';
+        $getGpon = DB::table('gpon')
+            ->select('*')
+            ->where('idGpon','=',$idGpon)
+            ->first();
+        $getFtmEa = DB::table('ftmea')
+            ->select('*')
+            ->where('idFtmEa','=',$idFtmEa)
+            ->first();
+        $getFtmOa = DB::table('ftmoa')
+            ->select('*')
+            ->where('idFtmOa','=',$idFtmOa)
+            ->first();
+        $getFeeder = DB::table('feeder')
+            ->select('*')
+            ->where('idFeeder','=',$idFeeder)
+            ->first();
+        $getOdc = DB::table('odc')
+            ->select('*')
+            ->where('idFeeder','=',$idFeeder)
+            ->first();
+        return view('mancore.edit_mancore', $data, 
+            [
+                'Gpon' => $getGpon,
+                'FtmEa' => $getFtmEa,
+                'FtmOa' => $getFtmOa,
+                'Feeder' => $getFeeder,
+                'Odc' => $getOdc,
+            ]
+        );
+    }
+
+    public function update_mancore(Request $request)
+    {
+
+        $data=$request->all();
+        
+        DB::table("gpon")
+        ->where('idGpon', '=', $data['idGpon'])
+        ->update(
+            [
+                'ipgpon' => $data['ipgpon'],
+                'panel' => $data['panel'][0],
+                'slot' => $data['slot'][0],
+                'port' => $data['port'][0],
+
+            ]
+        );
+
+        DB::table("ftmea")
+        ->where('idFtmEa', '=', $data['idFtmEa'])
+        ->update(
+            [
+                'rak' => $data['rak'][0],
+                'panel' => $data['panel'][1],
+                'slot' => $data['slot'][1],
+                'port' => $data['port'][1],
+            ]
+        );
+
+        DB::table("ftmoa")
+        ->where('idFtmOa', '=', $data['idFtmOa'])
+        ->update(
+            [
+                'rak' => $data['rak'][1],
+                'panel' => $data['panel'][2],
+                'slot' => $data['slot'][2],
+                'core' => $data['port'][1],
+            ]
+        );
+
+    }
+
     public function post_mancore(Request $request)
     {
         // insert data
