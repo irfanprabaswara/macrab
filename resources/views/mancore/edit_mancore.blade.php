@@ -41,7 +41,7 @@
 
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" aria-label="IP GPON" id="inputMask3"
-                                                    name="ipgpon" data-inputmask="'alias': 'ip'" inputmode="numeric" required>
+                                                    name="ipgpon" data-inputmask="'alias': 'ip'" inputmode="numeric" value="{{$Gpon->ipGpon}} required>
                                                 </div>
                                                 <div class="col-md-2">
 

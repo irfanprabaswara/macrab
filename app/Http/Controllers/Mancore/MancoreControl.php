@@ -371,7 +371,7 @@ class MancoreControl extends Controller
             // 'namaWitel' => $request->witelName,
             // 'codeWitel' => $request->witelCode
         ]);
-        dd(DB::getPdo()->lastInsertId());
+        // dd(DB::getPdo()->lastInsertId());
 
         // exit();
     }
