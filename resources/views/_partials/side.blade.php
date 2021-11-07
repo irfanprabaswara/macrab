@@ -19,19 +19,11 @@
                 <a href="{{ url('/') }}" class="active"><i
                         class="material-icons-two-tone">dashboard</i>Management Core</a>
             </li>
-<<<<<<< Updated upstream
             <!-- <li>
                 <a href="#" class="active"><i class="material-icons-two-tone">assessment</i>Data
                     OTDR</a>
             </li> -->
             <!-- <li>
-=======
-            <li>
-                <a href="#" class="active"><i class="material-icons-two-tone">assessment</i>Data
-                    OTDR</a>
-            </li>
-            <li>
->>>>>>> Stashed changes
                 <a href=""><i class="material-icons-two-tone">check_box</i>Validasi Data<i
                         class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu">
@@ -56,7 +48,6 @@
                 </ul>
             </li>
             <?php if (Auth::user()->is_admin == 1) { ?>
-<<<<<<< Updated upstream
             <li>
                 <a href="{{ url('/') }}/historydata" class="active"><i class="material-icons-two-tone">history</i>History
                     Data</a>
@@ -69,11 +60,6 @@
             </li>
             <li>
                 <a href="{{ url('/') }}/witel" class="active"><i class="material-icons-two-tone">assessment</i>Witel Data</a>
-=======
-            <li>
-                <a href="{{ url('/') }}/historydata" class="active"><i class="material-icons-two-tone">history</i>History
-                    Data</a>
->>>>>>> Stashed changes
             </li>
             <?php } ?>
         </ul>

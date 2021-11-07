@@ -11,10 +11,7 @@ use App\Distribusi;
 use App\Feeder;
 use App\Ftmea;
 use App\Ftmoa;
-<<<<<<< Updated upstream
 use App\Gpon as AppGpon;
-=======
->>>>>>> Stashed changes
 use App\Models\GPON\GPON;
 use App\Odc;
 use App\Odp;
@@ -26,13 +23,7 @@ class MancoreControl extends Controller
 {
     public function index()
     {
-<<<<<<< Updated upstream
         $mancore = DB::select("SELECT DISTINCT
-=======
-
-
-        $mancore = DB::select("SELECT
->>>>>>> Stashed changes
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
@@ -193,7 +184,6 @@ class MancoreControl extends Controller
     {
         $data['title'] = 'Tambah Data Mancore';
         $getGpon = DB::table('gpon')
-<<<<<<< Updated upstream
             ->select('*')
             ->get();
         return view('mancore.insert_mancore', $data, ['getGpon' => $getGpon]);
@@ -204,34 +194,36 @@ class MancoreControl extends Controller
         $data['title'] = 'Edit Data Mancore';
         $getGpon = DB::table('gpon')
             ->select('*')
-            ->where('idGpon','=',$idGpon)
+            ->where('idGpon', '=', $idGpon)
             ->first();
         $getFtmEa = DB::table('ftmea')
             ->select('*')
-            ->where('idFtmEa','=',$idFtmEa)
+            ->where('idFtmEa', '=', $idFtmEa)
             ->first();
         $getFtmOa = DB::table('ftmoa')
             ->select('*')
-            ->where('idFtmOa','=',$idFtmOa)
+            ->where('idFtmOa', '=', $idFtmOa)
             ->first();
         $getFeeder = DB::table('feeder')
             ->select('*')
-            ->where('idFeeder','=',$idFeeder)
+            ->where('idFeeder', '=', $idFeeder)
             ->first();
         $getOdc = DB::table('odc')
             ->select('*')
-            ->where('idFeeder','=',$idFeeder)
+            ->where('idFeeder', '=', $idFeeder)
             ->first();
         $getDistribusi = DB::table('distribusi')
             ->select('*')
-            ->where('idDistribusi','=',$idDistribusi)
+            ->where('idDistribusi', '=', $idDistribusi)
             ->first();
         $getOdp = DB::table('odp')
             ->select('*')
-            ->where('idDistribusi','=',$idDistribusi)
+            ->where('idDistribusi', '=', $idDistribusi)
             ->first();
 
-        return view('mancore.edit_mancore', $data,
+        return view(
+            'mancore.edit_mancore',
+            $data,
             [
                 'Gpon'       => $getGpon,
                 'FtmEa'      => $getFtmEa,
@@ -246,7 +238,7 @@ class MancoreControl extends Controller
 
     public function editcore($id)
     {
-        $odp = DB::table('odp')->where('idOdp',$id)->get();
+        $odp = DB::table('odp')->where('idOdp', $id)->get();
         $mancore = DB::select("SELECT
         gpon.idGpon,
         gpon.ipGpon,
@@ -378,70 +370,70 @@ class MancoreControl extends Controller
     LEFT JOIN sto
             ON odp.idSto = sto.idSto
     WHERE odp.idOdp = $id;");
-        return view('edit_mancore',['mancore' => $mancore, 'odp' => $odp]);        
+        return view('edit_mancore', ['mancore' => $mancore, 'odp' => $odp]);
     }
 
     public function update_mancore(Request $request)
     {
 
-        $data=$request->all();
+        $data = $request->all();
 
         // dd($data);
 
         DB::table("gpon")
-        ->where('idGpon', '=', $data['idGpon'])
-        ->update(
-            [
-                'ipgpon' => $data['ipgpon'],
-                'panel' => $data['panel'][0],
-                'slot' => $data['slot'][0],
-                'port' => $data['port'][0],
-            ]
-        );
+            ->where('idGpon', '=', $data['idGpon'])
+            ->update(
+                [
+                    'ipgpon' => $data['ipgpon'],
+                    'panel' => $data['panel'][0],
+                    'slot' => $data['slot'][0],
+                    'port' => $data['port'][0],
+                ]
+            );
 
         DB::table("ftmea")
-        ->where('idFtmEa', '=', $data['idFtmEa'])
-        ->update(
-            [
-                'rak' => $data['rak'][0],
-                'panel' => $data['panel'][1],
-                'slot' => $data['slot'][1],
-                'port' => $data['port'][1],
-            ]
-        );
+            ->where('idFtmEa', '=', $data['idFtmEa'])
+            ->update(
+                [
+                    'rak' => $data['rak'][0],
+                    'panel' => $data['panel'][1],
+                    'slot' => $data['slot'][1],
+                    'port' => $data['port'][1],
+                ]
+            );
 
         DB::table("ftmoa")
-        ->where('idFtmOa', '=', $data['idFtmOa'])
-        ->update(
-            [
-                'rak' => $data['rak'][1],
-                'panel' => $data['panel'][2],
-                'slot' => $data['slot'][2],
-                'core' => $data['port'][1],
-            ]
-        );
+            ->where('idFtmOa', '=', $data['idFtmOa'])
+            ->update(
+                [
+                    'rak' => $data['rak'][1],
+                    'panel' => $data['panel'][2],
+                    'slot' => $data['slot'][2],
+                    'core' => $data['port'][1],
+                ]
+            );
 
         DB::table("feeder")
-        ->where('idFeeder', '=', $data['idFeeder'])
-        ->update(
-            [
-                'idFeeder' => $data['idFeeder'],
-                // 'panel' => $data['panel'][3],
-                // 'slot' => $data['slot'][3],
-                // 'port' => $data['port'][3],
-            ]
-        );
+            ->where('idFeeder', '=', $data['idFeeder'])
+            ->update(
+                [
+                    'idFeeder' => $data['idFeeder'],
+                    // 'panel' => $data['panel'][3],
+                    // 'slot' => $data['slot'][3],
+                    // 'port' => $data['port'][3],
+                ]
+            );
 
         DB::table("odc")
-        ->where('idOdc', '=', $data['idOdc'])
-        ->update(
-            [
-                'idOdc' => $data['idOdc'],
-                // 'panel' => $data['panel'][4],
-                // 'slot' => $data['slot'][4],
-                // 'port' => $data['port'][4],
-            ]
-        );
+            ->where('idOdc', '=', $data['idOdc'])
+            ->update(
+                [
+                    'idOdc' => $data['idOdc'],
+                    // 'panel' => $data['panel'][4],
+                    // 'slot' => $data['slot'][4],
+                    // 'port' => $data['port'][4],
+                ]
+            );
 
         // DB::table("distribusi")
         // ->where('idDistribusi', '=', $data['idDistribusi'])
@@ -455,18 +447,17 @@ class MancoreControl extends Controller
         // );
 
         DB::table("odp")
-        ->where('idOdp', '=', $data['idOdp'])
-        ->update(
-            [
-                'idOdp' => $data['idOdp'],
-                'codeOdp' => $data['codeOdp'][0],
-                // 'slot' => $data['slot'][6],
-                // 'port' => $data['port'][6],
-            ]
-        );
+            ->where('idOdp', '=', $data['idOdp'])
+            ->update(
+                [
+                    'idOdp' => $data['idOdp'],
+                    'codeOdp' => $data['codeOdp'][0],
+                    // 'slot' => $data['slot'][6],
+                    // 'port' => $data['port'][6],
+                ]
+            );
 
         return redirect('/');
-
     }
 
     public function post_mancore(Request $request)
@@ -604,7 +595,7 @@ class MancoreControl extends Controller
 
     public function booking_core($id)
     {
-        $odp = DB::table('odp')->where('idOdp',$id)->get();
+        $odp = DB::table('odp')->where('idOdp', $id)->get();
         $mancore = DB::select("SELECT
         gpon.idGpon,
         gpon.ipGpon,
@@ -736,7 +727,7 @@ class MancoreControl extends Controller
     LEFT JOIN sto
             ON odp.idSto = sto.idSto
     WHERE odp.idOdp = $id;");
-        return view('bookingform',['mancore' => $mancore, 'odp' => $odp]);
+        return view('bookingform', ['mancore' => $mancore, 'odp' => $odp]);
     }
 
     public function update_booking(Request $request)
@@ -744,138 +735,15 @@ class MancoreControl extends Controller
         // update data witel
         // dd($request);
         DB::table('odp')
-              ->where('idOdp', $request->idOdp)
-              ->update(['idStatusData' => 3]);
+            ->where('idOdp', $request->idOdp)
+            ->update(['idStatusData' => 3]);
         DB::table('tiket')->insert([
-                ['idGpon' => $request->idGpon, 'idFtmEa' => $request->idFtmEa, 'idFtmOa' => $request->idFtmOa, 'idFeeder' => $request->idFeeder,
-                'idOdc' => $request->idOdc, 'idDist' => $request->idDistribusi, 'idOdp' => $request->idOdp, 'idStatusTiket' => 3]
+            [
+                'idGpon' => $request->idGpon, 'idFtmEa' => $request->idFtmEa, 'idFtmOa' => $request->idFtmOa, 'idFeeder' => $request->idFeeder,
+                'idOdc' => $request->idOdc, 'idDist' => $request->idDistribusi, 'idOdp' => $request->idOdp, 'idStatusTiket' => 3
+            ]
         ]);
         // alihkan halaman ke halaman sto
         return redirect('/');
-=======
-        ->select('*')
-        ->get();
-        return view('mancore.insert_mancore', $data, [ 'getGpon'=> $getGpon]);
->>>>>>> Stashed changes
     }
-
-    public function post_mancore(Request $request)
-    {
-        // insert data
-        //All Process butuh idRegional, idWitel, idSto dulu mas iz
-        // $gpon = Gpon::firstOrCreate(
-        //     ['ipGpon' => $request->ipGpon],
-        //     ['panel' => $request->panel],
-        //     ['slot' => $request->slot],
-        //     ['port' => $request->port]
-        // );
-        $idGpon =$request->ipGpon;
-
-        $ftmea = Ftmea::firstOrCreate(
-            ['idGpon' => $idGpon],
-            ['rak' => $request->rak],
-            ['panel' => $request->panel],
-            ['slot' => $request->slot],
-            ['port' => $request->port]
-        );
-        $idftmEa = $ftmea->idFtmEa;
-
-        $ftmoa = Ftmoa::firstOrCreate(
-            ['idGpon' => $idGpon],
-            ['idFtmEa' => $idftmEa],
-            ['rak' => $request->rak],
-            ['panel' => $request->panel],
-            ['slot' => $request->slot],
-            ['core' => $request->core]
-        );
-        $idftmOa = $ftmoa->idFtmOa;
-
-        $feeder = Feeder::firstOrCreate(
-            ['idGpon' => $idGpon],
-            ['idFtmEa' => $idftmEa],
-            ['idFtmOa' => $idftmOa],
-            ['idStatusCore' => '1'],
-            ['fe' => $request->fe],
-            ['lat1' => $request->lat1],
-            ['long1' => $request->long1],
-            ['lat2' => $request->lat2],
-            ['long2' => $request->long2],
-            ['lat3' => $request->lat3],
-            ['long3' => $request->long3]
-        );
-        $idFeeder = $feeder->idFeeder;
-
-        // $statusCore = StatusCore::firstOrCreate(
-        //     ['statusCore' => $request->statusCore]
-        // );
-
-        $odc = Odc::firstOrCreate(
-            ['idGpon' => $idGpon],
-            ['idFtmEa' => $idftmEa],
-            ['idFtmOa' => $idftmOa],
-            ['idFeeder' => $idFeeder],
-            ['odcCode' => $request->odcCode],
-            ['inPanel' => $request->inPanel],
-            ['portIn' => $request->portIn],
-            ['outPsKe' => $request->outPsKe],
-            ['outPanel' => $request->outPanel],
-            ['portOut' => $request->portOut]
-        );
-        $idOdc = $odc->idOdc;
-
-        $distribusi = Distribusi::firstOrCreate(
-            ['idGpon' => $idGpon],
-            ['idFtmEa' => $idftmEa],
-            ['idFtmOa' => $idftmOa],
-            ['idFeeder' => $idFeeder],
-            ['idOdc' => $idOdc],
-            ['idStatusCore' => '1'],
-            ['dis' => $request->dis],
-            ['core' => $request->core]
-        );
-        $idDistribusi = $distribusi->idDistribusi;
-
-        $odp = Odp::firstOrCreate(
-            ['idGpon' => $idGpon],
-            ['idFtmEa' => $idftmEa],
-            ['idFtmOa' => $idftmOa],
-            ['idFeeder' => $idFeeder],
-            ['idOdc' => $idOdc],
-            ['idDistribusi' => $idDistribusi],
-            ['idStatusData' => '1'],
-            ['codeOdp' => $request->codeOdp],
-            ['alamatOdp' => $request->alamatOdp],
-            ['latitude' => $request->latitude],
-            ['longitude' => $request->longitude]
-        );
-
-
-        // dd($gpon, $ftmea, $ftmoa, $feeder, $odc, $distribusi, $odp);
-
-        // alihkan halaman ke halaman view driver
-        // if ($gpon) {
-        //     Alert::success('Berhasil', 'Data Proteksi Tower Berhasil Ditambahkan');
-        //     return redirect('/')->with('Tambah Data Sukses !');
-        // }
-    }
-    public function doAddGpon(Request $request){
-
-       $data = DB::table('gpon')->insert([
-            'ipGpon' => $request->ipgpon,
-            // 'namaWitel' => $request->witelName,
-            // 'codeWitel' => $request->witelCode
-        ]);
-        dd(DB::getPdo()->lastInsertId());
-
-        // exit();
-    }
-    public function getGpon(Request $request){
-
-        $witel = DB::table('gpon')
-        ->select('*')
-        ->get();
-
-         // exit();
-     }
-
 }
