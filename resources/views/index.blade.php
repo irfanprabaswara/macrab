@@ -158,7 +158,7 @@
                                             <th>Distribusi</th>
                                             <th>Core</th>
                                             <th>ODP</th>
-                                            <th>Jenis ODP</th>
+                                            <th>Kode ODP</th>
                                             <th>Alamat ODP</th>
                                             <th>LAT</th>
                                             <th>LONG</th>
@@ -166,6 +166,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $statusOdp = 'Planned'; ?>
                                         @foreach ($mancore as $m)
                                             <tr>
                                                 <td>{{ $m->codeSto }}</td>
@@ -193,12 +194,16 @@
                                                 <td>{{ $m->dis }}</td>
                                                 <td>{{ $m->core }}</td>
                                                 <td>{{ $m->idStatusData }}</td>
-                                                <td>{{ $m->codeOdp }}</td>
+                                                <?php if(strpos($m->codeOdp, 'Planned') !== false) {?>
+                                                    <td class="table-danger">{{ $m->codeOdp }}</td>
+                                                <?php } else { ?>
+                                                    <td>{{ $m->codeOdp }}</td>
+                                                <?php } ?>
                                                 <td>{{ $m->alamatOdp }}</td>
                                                 <td>{{ $m->latitude }}</td>
                                                 <td>{{ $m->longitude }}</td>
                                                 <td>
-                                                    <a href="{{url('/mancore/edit_mancore')}}/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">edit   
+                                                    <a href="{{url('/mancore/edit_mancore')}}/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">edit
                                                     </a>
                                                     <!-- <a href="/mancore/booking/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">Booking</a> -->
                                                     <a href="/mancore/booking/{{ $m->idOdp }}">Booking</a>

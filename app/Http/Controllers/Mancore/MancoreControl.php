@@ -212,13 +212,24 @@ class MancoreControl extends Controller
             ->select('*')
             ->where('idFeeder','=',$idFeeder)
             ->first();
-        return view('mancore.edit_mancore', $data, 
+        $getDistribusi = DB::table('distribusi')
+            ->select('*')
+            ->where('idDistribusi','=',$idDistribusi)
+            ->first();
+        $getOdp = DB::table('odp')
+            ->select('*')
+            ->where('idDistribusi','=',$idDistribusi)
+            ->first();
+
+        return view('mancore.edit_mancore', $data,
             [
-                'Gpon' => $getGpon,
-                'FtmEa' => $getFtmEa,
-                'FtmOa' => $getFtmOa,
-                'Feeder' => $getFeeder,
-                'Odc' => $getOdc,
+                'Gpon'       => $getGpon,
+                'FtmEa'      => $getFtmEa,
+                'FtmOa'      => $getFtmOa,
+                'Feeder'     => $getFeeder,
+                'Odc'        => $getOdc,
+                'Distribusi' => $getDistribusi,
+                'Odp'        => $getOdp
             ]
         );
     }
@@ -227,7 +238,9 @@ class MancoreControl extends Controller
     {
 
         $data=$request->all();
-        
+
+        // dd($data);
+
         DB::table("gpon")
         ->where('idGpon', '=', $data['idGpon'])
         ->update(
@@ -236,7 +249,6 @@ class MancoreControl extends Controller
                 'panel' => $data['panel'][0],
                 'slot' => $data['slot'][0],
                 'port' => $data['port'][0],
-
             ]
         );
 
@@ -261,6 +273,52 @@ class MancoreControl extends Controller
                 'core' => $data['port'][1],
             ]
         );
+
+        DB::table("feeder")
+        ->where('idFeeder', '=', $data['idFeeder'])
+        ->update(
+            [
+                'idFeeder' => $data['idFeeder'],
+                // 'panel' => $data['panel'][3],
+                // 'slot' => $data['slot'][3],
+                // 'port' => $data['port'][3],
+            ]
+        );
+
+        DB::table("odc")
+        ->where('idOdc', '=', $data['idOdc'])
+        ->update(
+            [
+                'idOdc' => $data['idOdc'],
+                // 'panel' => $data['panel'][4],
+                // 'slot' => $data['slot'][4],
+                // 'port' => $data['port'][4],
+            ]
+        );
+
+        // DB::table("distribusi")
+        // ->where('idDistribusi', '=', $data['idDistribusi'])
+        // ->update(
+        //     [
+        //         'idDistribusi' => $data['idDistribusi'],
+        //         // 'panel' => $data['panel'][5],
+        //         // 'slot' => $data['slot'][5],
+        //         // 'port' => $data['port'][5],
+        //     ]
+        // );
+
+        DB::table("odp")
+        ->where('idOdp', '=', $data['idOdp'])
+        ->update(
+            [
+                'idOdp' => $data['idOdp'],
+                'codeOdp' => $data['codeOdp'][0],
+                // 'slot' => $data['slot'][6],
+                // 'port' => $data['port'][6],
+            ]
+        );
+
+        return redirect('/');
 
     }
 

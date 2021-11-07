@@ -24,11 +24,12 @@
                         'id' => 'demo-upload'
                         ]) !!}
                         <div class="col-md-12">
-                            <input type="text" name="idGpon" value="{{ $Gpon->idGpon }}">
-                            <input type="text" name="idFtmEa" value="{{ $FtmEa->idFtmEa }}">
-                            <input type="text" name="idFtmOa" value="{{ $FtmOa->idFtmOa }}">
-                            <input type="text" name="idFeeder" value="{{ $Feeder->idFeeder }}">
-                            <input type="text" name="idOdc" value="{{ $Odc->idOdc }}">
+                            <input type="hidden" name="idGpon" value="{{ $Gpon->idGpon }}">
+                            <input type="hidden" name="idFtmEa" value="{{ $FtmEa->idFtmEa }}">
+                            <input type="hidden" name="idFtmOa" value="{{ $FtmOa->idFtmOa }}">
+                            <input type="hidden" name="idFeeder" value="{{ $Feeder->idFeeder }}">
+                            <input type="hidden" name="idOdc" value="{{ $Odc->idOdc }}">
+                            <input type="hidden" name="idOdp" value="{{ $Odp->idOdp }}">
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="card-title">GPON</h5>
@@ -41,7 +42,7 @@
 
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" aria-label="IP GPON" id="inputMask3"
-                                                    name="ipgpon" data-inputmask="'alias': 'ip'" inputmode="numeric" value="{{$Gpon->ipGpon}} required>
+                                                    name="ipgpon" data-inputmask="'alias': 'ip'" inputmode="numeric" value="{{$Gpon->ipGpon}} >
                                                 </div>
                                                 <div class="col-md-2">
 
@@ -59,17 +60,17 @@
                                         <div class="example-content">
                                             <label for="Panel" class="form-label">Panel</label>
                                             <input type="text" class="form-control" id="Panel" name="panel[]"
-                                            aria-describedby="Panel" value="{{$Gpon->idGpon}}" required>
+                                            aria-describedby="Panel" value="{{$Gpon->idGpon}}" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Slot" class="form-label">Slot</label>
                                             <input type="text" class="form-control" id="Slot" name="slot[]"
-                                            aria-describedby="Slot" value="{{$Gpon->slot}}" required>
+                                            aria-describedby="Slot" value="{{$Gpon->slot}}" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Port" class="form-label">Port</label>
                                             <input type="text" class="form-control" id="Port" name="port[]"
-                                            aria-describedby="Port" value="{{$Gpon->port}}" required>
+                                            aria-describedby="Port" value="{{$Gpon->port}}" >
                                         </div>
                                     </div>
                                 </div>
@@ -84,22 +85,22 @@
                                         <div class="example-content">
                                             <label for="Rak" class="form-label">Rak</label>
                                             <input type="text" class="form-control" aria-label="IP address" id="Rak"
-                                            name="rak[]" required>
+                                            name="rak[]" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Panel" class="form-label">Panel</label>
                                             <input type="text" class="form-control" id="Panel" name="panel[]"
-                                            aria-describedby="Panel" required>
+                                            aria-describedby="Panel" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Slot" class="form-label">Slot</label>
                                             <input type="text" class="form-control" id="Slot" name="slot[]"
-                                            aria-describedby="Slot" required>
+                                            aria-describedby="Slot" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Port" class="form-label">Port</label>
                                             <input type="text" class="form-control" id="Port" name="port[]"
-                                            aria-describedby="Port" required>
+                                            aria-describedby="Port" >
                                         </div>
                                     </div>
                                 </div>
@@ -114,22 +115,22 @@
                                         <div class="example-content">
                                             <label for="Rak" class="form-label">Rak</label>
                                             <input type="text" class="form-control" aria-label="Rak" id="Rak" name="rak[]" value="{{$FtmOa->rak}}"
-                                            required>
+                                            >
                                         </div>
                                         <div class="example-content">
                                             <label for="Panel" class="form-label">Panel</label>
                                             <input type="text" class="form-control" id="Panel" name="panel[]"
-                                            aria-describedby="Panel" required>
+                                            aria-describedby="Panel" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Slot" class="form-label">Slot</label>
                                             <input type="text" class="form-control" id="Slot" name="slot[]"
-                                            aria-describedby="Slot" required>
+                                            aria-describedby="Slot" >
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
                                             <input type="text" class="form-control" id="core" name="core[]"
-                                            aria-describedby="core" required>
+                                            aria-describedby="core" >
                                         </div>
                                     </div>
                                 </div>
@@ -144,37 +145,37 @@
                                         <div class="example-content">
                                             <label for="fe" class="form-label">Fe</label>
                                             <input type="text" class="form-control" aria-label="fe" id="fe" name="fe"
-                                            required>
+                                            >
                                         </div>
                                         <div class="example-content">
                                             <label for="Closure1lat" class="form-label">Closure 1 (Lat)</label>
                                             <input type="text" class="form-control" id="Closure1lat" name="lat1"
-                                            aria-describedby="Closure 1 Lat" required>
+                                            aria-describedby="Closure 1 Lat" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Closure1long" class="form-label">Closure 1 (Long)</label>
                                             <input type="text" class="form-control" id="Closure1long" name="long1"
-                                            aria-describedby="Closure 1 Long" required>
+                                            aria-describedby="Closure 1 Long" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Closure2lat" class="form-label">Closure 2 (Lat)</label>
                                             <input type="text" class="form-control" id="Closure2lat" name="lat2"
-                                            aria-describedby="Closure 2 Lat" required>
+                                            aria-describedby="Closure 2 Lat" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Closure2long" class="form-label">Closure 2 (Long)</label>
                                             <input type="text" class="form-control" id="Closure2long" name="long2"
-                                            aria-describedby="Closure 2 Long" required>
+                                            aria-describedby="Closure 2 Long" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Closure3lat" class="form-label">Closure 3 (Lat)</label>
                                             <input type="text" class="form-control" id="Closure3lat" name="lat3"
-                                            aria-describedby="Closure 3 Lat" required>
+                                            aria-describedby="Closure 3 Lat" >
                                         </div>
                                         <div class="example-content">
                                             <label for="Closure3long" class="form-label">Closure 3 (Long)</label>
                                             <input type="text" class="form-control" id="Closure3long" name="long3"
-                                            aria-describedby="Closure 3 Long" required>
+                                            aria-describedby="Closure 3 Long" >
                                         </div>
                                     </div>
                                 </div>
@@ -189,17 +190,17 @@
                                         <div class="example-content">
                                             <label for="odc" class="form-label">ODC</label>
                                             <input type="text" class="form-control" aria-label="IP address" id="odcCode"
-                                            name="odcCode" required>
+                                            name="odcCode[]" value="{{ $Odc->idOdc }}" >
                                         </div>
                                         <div class="example-content">
                                             <label for="inPanel" class="form-label">In Panel</label>
-                                            <input type="text" class="form-control" id="inPanel" name="inPanel"
-                                            aria-describedby="inPanel" required>
+                                            <input type="text" class="form-control" id="inPanel" name="inPanel[]" value={{ $Odc->inPanel }}
+                                            aria-describedby="inPanel" >
                                         </div>
                                         <div class="example-content">
                                             <label for="portIn" class="form-label">Port In</label>
-                                            <input type="text" class="form-control" id="portIn" name="portIn"
-                                            aria-describedby="portIn" required>
+                                            <input type="text" class="form-control" id="portIn" name="portIn[]" value="{{ $Odc->portIn }}"
+                                            aria-describedby="portIn" >
                                         </div>
                                     </div>
                                 </div>
@@ -214,101 +215,46 @@
                                         <div class="example-content">
                                             <label for="outPanel" class="form-label">Out panel</label>
                                             <input type="text" class="form-control" aria-label="IP address" id="outPanel"
-                                            name="outPanel" required>
+                                            name="outPanel[]" value="{{ $Odc->outPanel }}" >
                                         </div>
                                         <div class="example-content">
                                             <label for="port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="port" name="port[]"
-                                            aria-describedby="inPanel" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="distribusi" class="form-label">Distribusi</label>
-                                            <input type="text" class="form-control" id="distribusi" name="distribusi"
-                                            aria-describedby="distribusi" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core[]"
-                                            aria-describedby="core" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="odp" class="form-label">ODP</label>
-                                            <input type="text" class="form-control" id="odp" name="odp"
-                                            aria-describedby="odp" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="jenisOdp" class="form-label">Jenis ODP</label>
-                                            <input type="text" class="form-control" id="jenisOdp" name="jenisOdp"
-                                            aria-describedby="odp" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="alamatOdp" class="form-label">Alamat ODP</label>
-                                            <input type="text" class="form-control" id="alamatOdp" name="alamatOdp"
-                                            aria-describedby="odp" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="latitude" class="form-label">Latitude</label>
-                                            <input type="text" class="form-control" id="latitude" name="latitude"
-                                            aria-describedby="odp" required>
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="longitude" class="form-label">Longitude</label>
-                                            <input type="text" class="form-control" id="longitude" name="longitude"
-                                            aria-describedby="odp" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title">SPL Outlet 1</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="example-container">
-                                        <div class="example-content">
-                                            <label for="outPanel" class="form-label">Out panel</label>
-                                            <input type="text" class="form-control" aria-label="IP address" id="outPanel"
-                                            name="outPanel" >
-                                        </div>
-                                        <div class="example-content">
-                                            <label for="port" class="form-label">Port</label>
-                                            <input type="text" class="form-control" id="port" name="port[]"
+                                            <input type="text" class="form-control" id="port" name="portIn[]" value="{{ $Odc->portIn }}"
                                             aria-describedby="inPanel" >
                                         </div>
                                         <div class="example-content">
                                             <label for="distribusi" class="form-label">Distribusi</label>
-                                            <input type="text" class="form-control" id="distribusi" name="distribusi"
+                                            <input type="text" class="form-control" id="distribusi" name="dis[]" value="{{ $Distribusi->dis }}"
                                             aria-describedby="distribusi" >
                                         </div>
                                         <div class="example-content">
                                             <label for="core" class="form-label">Core</label>
-                                            <input type="text" class="form-control" id="core" name="core[]"
+                                            <input type="text" class="form-control" id="core" name="core[]" value="{{ $Distribusi->core }}"
                                             aria-describedby="core" >
                                         </div>
                                         <div class="example-content">
                                             <label for="odp" class="form-label">ODP</label>
-                                            <input type="text" class="form-control" id="odp" name="odp"
+                                            <input type="text" class="form-control" id="odp" name="odp[]" value="{{ $Odp->idOdp }}"
                                             aria-describedby="odp" >
                                         </div>
                                         <div class="example-content">
-                                            <label for="jenisOdp" class="form-label">Jenis ODP</label>
-                                            <input type="text" class="form-control" id="jenisOdp" name="jenisOdp"
+                                            <label for="codeOdp" class="form-label">Code ODP</label>
+                                            <input type="text" class="form-control" id="codeOdp" name="codeOdp[]" value="{{ $Odp->codeOdp }}"
                                             aria-describedby="odp" >
                                         </div>
                                         <div class="example-content">
                                             <label for="alamatOdp" class="form-label">Alamat ODP</label>
-                                            <input type="text" class="form-control" id="alamatOdp" name="alamatOdp"
+                                            <input type="text" class="form-control" id="alamatOdp" name="alamatOdp[]" value="{{ $Odp->alamatOdp }}"
                                             aria-describedby="odp" >
                                         </div>
                                         <div class="example-content">
                                             <label for="latitude" class="form-label">Latitude</label>
-                                            <input type="text" class="form-control" id="latitude" name="latitude"
+                                            <input type="text" class="form-control" id="latitude" name="latitude[]" value="{{ $Odp->latitude }}"
                                             aria-describedby="odp" >
                                         </div>
                                         <div class="example-content">
                                             <label for="longitude" class="form-label">Longitude</label>
-                                            <input type="text" class="form-control" id="longitude" name="longitude"
+                                            <input type="text" class="form-control" id="longitude" name="longitude[]" value="{{ $Odp->longitude }}"
                                             aria-describedby="odp" >
                                         </div>
                                     </div>
@@ -373,6 +319,61 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="card-title">SPL Outlet 3</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="example-container">
+                                        <div class="example-content">
+                                            <label for="outPanel" class="form-label">Out panel</label>
+                                            <input type="text" class="form-control" aria-label="IP address" id="outPanel"
+                                            name="outPanel" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="port" class="form-label">Port</label>
+                                            <input type="text" class="form-control" id="port" name="port[]"
+                                            aria-describedby="inPanel" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="distribusi" class="form-label">Distribusi</label>
+                                            <input type="text" class="form-control" id="distribusi" name="distribusi"
+                                            aria-describedby="distribusi" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="core" class="form-label">Core</label>
+                                            <input type="text" class="form-control" id="core" name="core[]"
+                                            aria-describedby="core" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="odp" class="form-label">ODP</label>
+                                            <input type="text" class="form-control" id="odp" name="odp"
+                                            aria-describedby="odp" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="jenisOdp" class="form-label">Jenis ODP</label>
+                                            <input type="text" class="form-control" id="jenisOdp" name="jenisOdp"
+                                            aria-describedby="odp" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="alamatOdp" class="form-label">Alamat ODP</label>
+                                            <input type="text" class="form-control" id="alamatOdp" name="alamatOdp"
+                                            aria-describedby="odp" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="latitude" class="form-label">Latitude</label>
+                                            <input type="text" class="form-control" id="latitude" name="latitude"
+                                            aria-describedby="odp" >
+                                        </div>
+                                        <div class="example-content">
+                                            <label for="longitude" class="form-label">Longitude</label>
+                                            <input type="text" class="form-control" id="longitude" name="longitude"
+                                            aria-describedby="odp" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">SPL Outlet 4</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="example-container">
