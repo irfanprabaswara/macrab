@@ -94,6 +94,7 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // TODO MANCORE
     Route::get('/mancore/insert_mancore', 'Mancore\MancoreControl@insert_mancore');
+<<<<<<< Updated upstream
     Route::get('/mancore/edit_mancore/{idGpon}/{idFtmEa}/{idFtmOa}/{idFeeder}/{idOdc}/{idDistribusi}/{idOdp}', 'Mancore\MancoreControl@edit_mancore');
     Route::post('/mancore/update_mancore', 'Mancore\MancoreControl@update_mancore');
     Route::post('/mancore/post_mancore', 'Mancore\MancoreControl@post_mancore');
@@ -106,6 +107,11 @@ Route::group(['middleware' => ['ceklogin']], function () {
 
     // Route::get('/historydata', 'HistoryDataControl@get');
     Route::get('/historydata', 'HistoryDataControl@index');
+=======
+    Route::post('/mancore/post_mancore', 'Mancore\MancoreControl@post_mancore');
+    Route::post('/mancore/doAddGpon', 'Mancore\MancoreControl@doAddGpon');
+
+>>>>>>> Stashed changes
 
 
     //? MENDAPATKAN LIST DATA MANCORE

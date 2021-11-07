@@ -8,15 +8,22 @@ use Illuminate\Support\Facades\DB;
 class GPON extends Model
 {
     protected $table = "gpon";
+<<<<<<< Updated upstream
 
 
     protected $fillable = ['idSto', 'idWitel', 'idRegional', 'ipGpon', 'panel', 'slot', 'port', 'createdBy', 'createdTime', 'modifiedBy', 'modifiedTime', 'created_at', 'updated_at'];
+=======
+    
+
+    protected $fillable = ['idSto','idWitel','idRegional','ipGpon','panel','slot','port','createdBy','createdTime','modifiedBy','modifiedTime', 'created_at', 'updated_at'];
+>>>>>>> Stashed changes
 
     protected $casts = [
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d',
         'deleted_at' => 'datetime:Y-m-d h:i:s'
     ];
+<<<<<<< Updated upstream
 
 
     public static function getRowId($idOdp)
@@ -151,4 +158,6 @@ class GPON extends Model
 
         return $data;
     }
+=======
+>>>>>>> Stashed changes
 }

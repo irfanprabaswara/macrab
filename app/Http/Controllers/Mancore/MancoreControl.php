@@ -11,7 +11,10 @@ use App\Distribusi;
 use App\Feeder;
 use App\Ftmea;
 use App\Ftmoa;
+<<<<<<< Updated upstream
 use App\Gpon as AppGpon;
+=======
+>>>>>>> Stashed changes
 use App\Models\GPON\GPON;
 use App\Odc;
 use App\Odp;
@@ -23,7 +26,13 @@ class MancoreControl extends Controller
 {
     public function index()
     {
+<<<<<<< Updated upstream
         $mancore = DB::select("SELECT DISTINCT
+=======
+
+
+        $mancore = DB::select("SELECT
+>>>>>>> Stashed changes
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
@@ -184,6 +193,7 @@ class MancoreControl extends Controller
     {
         $data['title'] = 'Tambah Data Mancore';
         $getGpon = DB::table('gpon')
+<<<<<<< Updated upstream
             ->select('*')
             ->get();
         return view('mancore.insert_mancore', $data, ['getGpon' => $getGpon]);
@@ -742,5 +752,130 @@ class MancoreControl extends Controller
         ]);
         // alihkan halaman ke halaman sto
         return redirect('/');
+=======
+        ->select('*')
+        ->get();
+        return view('mancore.insert_mancore', $data, [ 'getGpon'=> $getGpon]);
+>>>>>>> Stashed changes
     }
+
+    public function post_mancore(Request $request)
+    {
+        // insert data
+        //All Process butuh idRegional, idWitel, idSto dulu mas iz
+        // $gpon = Gpon::firstOrCreate(
+        //     ['ipGpon' => $request->ipGpon],
+        //     ['panel' => $request->panel],
+        //     ['slot' => $request->slot],
+        //     ['port' => $request->port]
+        // );
+        $idGpon =$request->ipGpon;
+
+        $ftmea = Ftmea::firstOrCreate(
+            ['idGpon' => $idGpon],
+            ['rak' => $request->rak],
+            ['panel' => $request->panel],
+            ['slot' => $request->slot],
+            ['port' => $request->port]
+        );
+        $idftmEa = $ftmea->idFtmEa;
+
+        $ftmoa = Ftmoa::firstOrCreate(
+            ['idGpon' => $idGpon],
+            ['idFtmEa' => $idftmEa],
+            ['rak' => $request->rak],
+            ['panel' => $request->panel],
+            ['slot' => $request->slot],
+            ['core' => $request->core]
+        );
+        $idftmOa = $ftmoa->idFtmOa;
+
+        $feeder = Feeder::firstOrCreate(
+            ['idGpon' => $idGpon],
+            ['idFtmEa' => $idftmEa],
+            ['idFtmOa' => $idftmOa],
+            ['idStatusCore' => '1'],
+            ['fe' => $request->fe],
+            ['lat1' => $request->lat1],
+            ['long1' => $request->long1],
+            ['lat2' => $request->lat2],
+            ['long2' => $request->long2],
+            ['lat3' => $request->lat3],
+            ['long3' => $request->long3]
+        );
+        $idFeeder = $feeder->idFeeder;
+
+        // $statusCore = StatusCore::firstOrCreate(
+        //     ['statusCore' => $request->statusCore]
+        // );
+
+        $odc = Odc::firstOrCreate(
+            ['idGpon' => $idGpon],
+            ['idFtmEa' => $idftmEa],
+            ['idFtmOa' => $idftmOa],
+            ['idFeeder' => $idFeeder],
+            ['odcCode' => $request->odcCode],
+            ['inPanel' => $request->inPanel],
+            ['portIn' => $request->portIn],
+            ['outPsKe' => $request->outPsKe],
+            ['outPanel' => $request->outPanel],
+            ['portOut' => $request->portOut]
+        );
+        $idOdc = $odc->idOdc;
+
+        $distribusi = Distribusi::firstOrCreate(
+            ['idGpon' => $idGpon],
+            ['idFtmEa' => $idftmEa],
+            ['idFtmOa' => $idftmOa],
+            ['idFeeder' => $idFeeder],
+            ['idOdc' => $idOdc],
+            ['idStatusCore' => '1'],
+            ['dis' => $request->dis],
+            ['core' => $request->core]
+        );
+        $idDistribusi = $distribusi->idDistribusi;
+
+        $odp = Odp::firstOrCreate(
+            ['idGpon' => $idGpon],
+            ['idFtmEa' => $idftmEa],
+            ['idFtmOa' => $idftmOa],
+            ['idFeeder' => $idFeeder],
+            ['idOdc' => $idOdc],
+            ['idDistribusi' => $idDistribusi],
+            ['idStatusData' => '1'],
+            ['codeOdp' => $request->codeOdp],
+            ['alamatOdp' => $request->alamatOdp],
+            ['latitude' => $request->latitude],
+            ['longitude' => $request->longitude]
+        );
+
+
+        // dd($gpon, $ftmea, $ftmoa, $feeder, $odc, $distribusi, $odp);
+
+        // alihkan halaman ke halaman view driver
+        // if ($gpon) {
+        //     Alert::success('Berhasil', 'Data Proteksi Tower Berhasil Ditambahkan');
+        //     return redirect('/')->with('Tambah Data Sukses !');
+        // }
+    }
+    public function doAddGpon(Request $request){
+
+       $data = DB::table('gpon')->insert([
+            'ipGpon' => $request->ipgpon,
+            // 'namaWitel' => $request->witelName,
+            // 'codeWitel' => $request->witelCode
+        ]);
+        dd(DB::getPdo()->lastInsertId());
+
+        // exit();
+    }
+    public function getGpon(Request $request){
+
+        $witel = DB::table('gpon')
+        ->select('*')
+        ->get();
+
+         // exit();
+     }
+
 }
