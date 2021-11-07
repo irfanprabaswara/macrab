@@ -4,11 +4,11 @@
 @endsection
 
 <body>
-    <div class="app app-auth-sign-in align-content-stretch d-flex flex-wrap justify-content-end">
-        <div class="app-auth-background">
+    <!-- <div class="app app-auth-sign-in align-content-stretch d-flex flex-wrap justify-content-end"> -->
+        <!-- <div class="app-auth-background">
 
-        </div>
-        <div class="app-auth-container">
+        </div> -->
+        <div class="app-auth-container-center">
             <div class="logo">
                 <a href="index.html">Macrab</a>
             </div>
@@ -79,7 +79,7 @@
             {!! Form::close() !!}
 
         </div>
-    </div>
+    <!-- </div> -->
 
     <!-- Javascripts -->
     <script src="{{ url('/') }}/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
