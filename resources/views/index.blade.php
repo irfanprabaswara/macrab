@@ -203,12 +203,36 @@
                                                 <td>{{ $m->latitude }}</td>
                                                 <td>{{ $m->longitude }}</td>
                                                 <td>
-                                                    <a href="{{url('/mancore/edit_mancore')}}/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">edit
+                                                    <a href="/mancore/booking/{{ $m->idOdp }}">
+                                                        <button style="background: #98D6EA; height: 30px;
+                                                                    width: 100px;
+                                                                    left: 299.5px;
+                                                                    top: 5px;
+                                                                    border-radius: 5px;
+                                                                    ">Booking</button>
                                                     </a>
+                                                    <a href="{{url('/mancore/edit_mancore')}}/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">
+                                                        <button style="background: #FFA900; height: 30px;
+                                                                    width: 100px;
+                                                                    left: 299.5px;
+                                                                    top: 5px;
+                                                                    border-radius: 5px;
+                                                                    ">Edit</button>
+                                                    </a> 
+                                                    <a href="/comingsoon">
+                                                        <button style="background: #FF421D; height: 30px;
+                                                                    width: 100px;
+                                                                    left: 299.5px;
+                                                                    top: 5px;
+                                                                    border-radius: 5px;
+                                                                    ">Hapus</button>
+                                                    </a> 
+                                                    <!-- <a href="{{url('/mancore/edit_mancore')}}/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">edit
+                                                    </a> -->
                                                     <!-- <a href="/mancore/booking/{{ $m->idGpon }}/{{ $m->idFtmEa }}/{{ $m->idFtmOa }}/{{ $m->idFeeder }}/{{ $m->idOdc }}/{{ $m->idDistribusi }}/{{ $m->idOdp }}">Booking</a> -->
-                                                    <a href="/mancore/booking/{{ $m->idOdp }}">Booking</a>
+                                                    <!-- <a href="/mancore/booking/{{ $m->idOdp }}">Booking</a> -->
                                                     <!-- <a href="/mancore/hapus/{{ $m->idGpon }}">Hapus</a> -->
-                                                    <a href="/comingsoon">Hapus</a>
+                                                    <!-- <a href="/comingsoon">Hapus</a> -->
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -40,7 +40,7 @@ class RegionalExport implements FromView
 
     public function view(): View
     {
-        $mancore = \DB::select("SELECT
+        $mancore = \DB::select("SELECT DISTINCT
         gpon.idGpon,
         gpon.ipGpon,
         gpon.panel,
