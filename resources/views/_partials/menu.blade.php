@@ -42,7 +42,6 @@
                             </a>
                         </li>
                     </ul>
-
                 </div>
                 <div class="d-flex">
                     <ul class="navbar-nav">
@@ -55,10 +54,10 @@
                                 <div class="avatar-title">MB</div>
                             </div>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item hidden-on-mobile">
                             <a class="nav-link" href="#"><i class="material-icons">manage_accounts</i></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item hidden-on-mobile">
                             <a class="nav-link" href="/logout"><i class="material-icons">logout</i></a>
                         </li>
                     </ul>
